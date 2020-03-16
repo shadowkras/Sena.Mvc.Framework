@@ -1,0 +1,8 @@
+D:\Vigente\Vigente.Framework.Core\bin\Debug\netcoreapp2.2\Vigente.Framework.Core.deps.json
+D:\Vigente\Vigente.Framework.Core\bin\Debug\netcoreapp2.2\Vigente.Framework.Core.dll
+D:\Vigente\Vigente.Framework.Core\bin\Debug\netcoreapp2.2\Vigente.Framework.Core.pdb
+D:\Vigente\Vigente.Framework.Core\obj\Debug\netcoreapp2.2\Vigente.Framework.Core.csprojAssemblyReference.cache
+D:\Vigente\Vigente.Framework.Core\obj\Debug\netcoreapp2.2\Vigente.Framework.Core.AssemblyInfoInputs.cache
+D:\Vigente\Vigente.Framework.Core\obj\Debug\netcoreapp2.2\Vigente.Framework.Core.AssemblyInfo.cs
+D:\Vigente\Vigente.Framework.Core\obj\Debug\netcoreapp2.2\Vigente.Framework.Core.dll
+D:\Vigente\Vigente.Framework.Core\obj\Debug\netcoreapp2.2\Vigente.Framework.Core.pdb
