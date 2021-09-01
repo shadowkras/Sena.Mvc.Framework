@@ -1,0 +1,42 @@
+﻿@model VueSelectViewModel
+
+<v-select id="@Model.Id" class="vue-select" label="@Model.NomePropriedadeIdentificador"
+          :reduce="option => option.@(Model.NomePropriedadeIdentificador)" 
+          :filterable="false" 
+          :options="selectOptions"
+          v-on:search="onSearch" 
+          v-on:input="setSelectedValue" 
+          v-model="valorSelecionado"
+          :valor="valorSelecionado" 
+          placeholder="@Model.Placeholder"
+          valor-inicial="@Model.ValorInicial">
+    <template slot="no-options">
+        Digite um nome para procurar...
+    </template>
+    <template slot="option" slot-scope="option">
+        <div class="d-center" 
+             v-on:click="setSelectedValue(option.@(Model.NomePropriedadeIdentificador))">
+            {{ option.@Model.NomePropriedadeDescricao }}
+        </div>
+    </template>
+    <template slot="selected-option" slot-scope="option">
+        <input id="@(Model.NomePropriedadeRetorno)"
+               name="@(Model.NomePropriedadeRetorno.Replace("_", "."))"
+               class="input-vue-selected"
+               v-model="valorSelecionado" />
+        <input id="@(Model.NomePropriedadeRetorno)Descricao"
+               name="@(Model.NomePropriedadeRetorno.Replace("_", "."))Descricao"
+               class="hidden"
+               v-model="valorSelecionadoTexto" />
+        <div class="selected d-center">
+            {{ option.@(Model.NomePropriedadeDescricao) }}
+        </div>
+    </template>
+</v-select>
+
+<script type="application/javascript">
+    document.addEventListener('DOMContentLoaded', function ()
+    {
+        componenteVueSelect('@Model.Id', '@Model.NomePropriedadeIdentificador', '@Model.NomePropriedadeDescricao', '@Model.FetchUrl');
+    });
+</script>
