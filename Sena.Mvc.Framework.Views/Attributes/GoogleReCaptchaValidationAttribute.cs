@@ -8,19 +8,19 @@ using System.Net.Http;
 namespace Sena.Mvc.Framework.Views.Attributes
 {
     /// <summary>
-    /// Attributo de validação de reCAPTCHA do google.
+    /// Attribute to validate google reCAPTCHA.
     /// </summary>
     public class GoogleReCaptchaValidationAttribute : ValidationAttribute
     {
         /// <summary>
-        /// Verifica se o reCAPTCHA é válido.
+        /// Checks wether the reCAPTCHA is valid.
         /// </summary>
-        /// <param name="value">Resposta do captcha.</param>
-        /// <param name="validationContext">Contexto de validação.</param>
+        /// <param name="value">Captcha response.</param>
+        /// <param name="validationContext">Validation context.</param>
         /// <returns></returns>
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            Lazy<ValidationResult> errorResult = new Lazy<ValidationResult>(() => new ValidationResult("Google reCAPTCHA inválido", new String[] { validationContext.MemberName }));
+            Lazy<ValidationResult> errorResult = new Lazy<ValidationResult>(() => new ValidationResult("Google reCAPTCHA invalid", new String[] { validationContext.MemberName }));
 
             if (value == null || string.IsNullOrWhiteSpace(value.ToString()))
             {

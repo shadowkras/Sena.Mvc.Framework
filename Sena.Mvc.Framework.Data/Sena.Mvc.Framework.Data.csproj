@@ -2,6 +2,19 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/shadowkras/Sena.Mvc.Framework</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/shadowkras/Sena.Mvc.Framework</RepositoryUrl>
+    <Authors>Leonardo Sena Rodrigues</Authors>
+    <Product>Sena.Mvc.Framework</Product>
+    <Description>This is a framework with several tools that help developing the Data layer of a MVC project in C#.
+It has a generic repository with standard CRUD methods using entity framework.</Description>
+    <Copyright>Leonardo Sena Rodrigues</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>D:\Projetos Github\Sena.Mvc.Framework\Sena.Mvc.Framework.Data\Sena.Mvc.Framework.Data.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,14 +31,18 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="2.0.4" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.7" />
-    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL.NetTopologySuite" Version="5.0.7" />
-    <PackageReference Include="Npgsql.GeoJSON" Version="5.0.7" />
     <PackageReference Include="ProjNET4GeoAPI" Version="1.4.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Sena.Mvc.Framework.Core\Sena.Mvc.Framework.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -5,6 +5,10 @@ using System.Threading.Tasks;
 
 namespace Sena.Mvc.Framework.Data.Interfaces
 {
+    /// <summary>
+    /// Interface to implement a generic repository class.
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public interface IGenericRepository<TEntity> : IDisposable where TEntity : class
     {
         /// <summary>

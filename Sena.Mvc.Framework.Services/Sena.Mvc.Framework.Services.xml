@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sena.Mvc.Framework.Services</name>
+    </assembly>
+    <members>
+        <member name="T:Sena.Mvc.Framework.Services.DependencyInjection.StructureMapDependencyResolver">
+            <summary>
+            Structure map dependency resolver class.
+            </summary>
+        </member>
+    </members>
+</doc>

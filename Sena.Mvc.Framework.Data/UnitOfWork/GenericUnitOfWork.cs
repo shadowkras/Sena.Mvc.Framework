@@ -10,14 +10,18 @@ using Sena.Mvc.Framework.Data.Resources;
 namespace Sena.Mvc.Framework.Data.UnitOfWork
 {
     /// <summary>
-    /// Classe de UnitOfWork genérica que implementa os métodos padrões.
+    /// Generic UnitOfWork class that implements basic operations (ie: commit or rollback)
     /// </summary>
     /// <typeparam name="TContext"></typeparam>
     public class GenericUnitOfWork<TContext> : IGenericUnitOfWork
     {
         #region Fields
 
+        /// <summary>
+        /// Object containing the acessible dbContext.
+        /// </summary>
         protected readonly GenericContext<TContext> _dbContext;
+
         private bool _disposed;
 
         #endregion
@@ -38,6 +42,10 @@ namespace Sena.Mvc.Framework.Data.UnitOfWork
 
         #region Constructor
 
+        /// <summary>
+        /// Default constructor using a generic context.
+        /// </summary>
+        /// <param name="dbContext"></param>
         public GenericUnitOfWork(GenericContext<TContext> dbContext)
         {
             _dbContext = dbContext ?? throw new ArgumentNullException("dbContext");

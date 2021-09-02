@@ -368,9 +368,14 @@ namespace Sena.Mvc.Framework.Data.Repository
 
         #region GeoJSON
 
-        public async Task<string> SelectGeoJson(string geometria)
+        /// <summary>
+        /// Method to select geometry data as GeoJSON.
+        /// </summary>
+        /// <param name="geometry">Stringified geometry to convert into convert.</param>
+        /// <returns></returns>
+        public async Task<string> SelectGeoJson(string geometry)
         {
-            var data = await DbSet.FromSqlRaw("SELECT * FROM ST_AsGeoJSON({0}) as GeoJson ", geometria)
+            var data = await DbSet.FromSqlRaw("SELECT * FROM ST_AsGeoJSON({0}) as GeoJson ", geometry)
                               .ToListAsync();
             var resultado = data.Select(p => p.ToString()).FirstOrDefault();
             return resultado;

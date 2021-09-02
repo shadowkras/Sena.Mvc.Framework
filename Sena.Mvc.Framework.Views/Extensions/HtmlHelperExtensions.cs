@@ -6,12 +6,17 @@ using Sena.Mvc.Framework.Core.Extensions;
 
 namespace Sena.Mvc.Framework.Views.Extensions
 {
+    /// <summary>
+    /// Extension methods for the HtmlHelper class.
+    /// </summary>
     public static class HtmlHelperExtensions
     {
+        #region Obter o nome da action
+        
         /// <summary>
-        /// Retorna o nome da Action que invocou a view.
+        /// Return the action name that invoked our view.
         /// </summary>
-        /// <param name="htmlHelper">Classe de HtmlHelper.</param>
+        /// <param name="htmlHelper">HtmlHelper class interface.</param>
         /// <returns></returns>
         public static string ActionName(this IHtmlHelper htmlHelper)
         {
@@ -27,12 +32,25 @@ namespace Sena.Mvc.Framework.Views.Extensions
             }
         }
 
+        /// <summary>
+        /// Return the name of the current action on a view page.
+        /// </summary>
+        /// <param name="htmlHelper">HtmlHelper class interface</param>
+        /// <returns></returns>
+        public static string PageClass(this IHtmlHelper htmlHelper)
+        {
+            string currentAction = (string)htmlHelper.ViewContext.RouteData.Values["action"];
+            return currentAction;
+        }
+
+        #endregion
+
         #region Obter Url de Retorno
 
         /// <summary>
-        /// Retorna a url que chamou o request atual, para criar uma "url de retorno".
+        /// Return the url that invoked the current request, to create a "return url".
         /// </summary>
-        /// <param name="htmlHelper">Classe de HtmlHelper.</param>
+        /// <param name="htmlHelper">HtmlHelper class interface.</param>
         /// <returns></returns>
         public static string GetReturnUrl(this IHtmlHelper htmlHelper)
         {
@@ -53,14 +71,14 @@ namespace Sena.Mvc.Framework.Views.Extensions
         #region Obter SelectList de enumeradores
 
         /// <summary>
-        /// Retorna uma SelectList com os itens de um enum.
+        /// Return a SelectList with the itens in an enum.
         /// </summary>
-        /// <param name="modelValue">Valor do objeto, para a seleção padrão.</param>
-        /// <param name="toUpper"> Define se a informação será maiuscula ou minuscula.</param>
+        /// <param name="htmlHelper">HtmlHelper class interface.</param>
+        /// <param name="modelValue">Model value for default selected item.</param>
         /// <returns></returns>
         public static SelectList GetEnumSelectList<TEnum>(this IHtmlHelper htmlHelper, object modelValue) where TEnum : struct
         {
-            System.Collections.IEnumerable items = ListaEnum(typeof(TEnum));
+            System.Collections.IEnumerable items = ListEnum(typeof(TEnum));
 
             if (modelValue != null)
                 return new SelectList(items, "Value", "Text", selectedValue: modelValue);
@@ -69,38 +87,32 @@ namespace Sena.Mvc.Framework.Views.Extensions
         }
 
         /// <summary>
-        /// Retorna Lista de Display's (Name) e valor das propriedade do enumerador.
+        /// Return a list with the Display Names and values of the itens in an enumerator.
         /// </summary>
-        /// <param name="source">Type deve ser do tipo Enum (enumerador).</param>
+        /// <param name="source">Source enumerator.</param>
         /// <returns></returns>
-        private static IEnumerable<SelectListItem> ListaEnum(this Enum source)
+        private static IEnumerable<SelectListItem> ListEnum(this Enum source)
         {
-            return ListaEnum(source.GetType());
+            return ListEnum(source.GetType());
         }
 
         /// <summary>
-        /// Retorna Lista de Display's (Name) e valor das propriedade do enumerador.
+        /// Return a list with the Display Names and values of the itens in an enumerator.
         /// </summary>
         /// <param name="source">Type deve ser do tipo Enum (enumerador).</param>
         /// <returns></returns>
-        private static IEnumerable<SelectListItem> ListaEnum(Type source)
+        private static IEnumerable<SelectListItem> ListEnum(Type source)
         {
             var type = source.GetType();
             return from Enum p in Enum.GetValues(source)
                    select new SelectListItem
                    {
                        Selected = p.Equals(type),
-                       Text = p.DescricaoEnum(),
+                       Text = p.EnumDescription(),
                        Value = Convert.ToInt32(p).ToString()
                    };
         }
 
         #endregion
-
-        public static string PageClass(this IHtmlHelper htmlHelper)
-        {
-            string currentAction = (string)htmlHelper.ViewContext.RouteData.Values["action"];
-            return currentAction;
-        }
     }
 }

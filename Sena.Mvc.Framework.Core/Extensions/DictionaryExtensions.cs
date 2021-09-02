@@ -3,12 +3,15 @@ using System.Collections.Generic;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods for ICollection, IDictionary and IList objects.
+    /// </summary>
     public static class DictionaryExtensions
     { 
         /// <summary>
-        /// Retorna se um dicionário é vazio.
+        /// Returns if our dictionary is empty.
         /// </summary>
-        /// <param name="dictionary">Objeto do tipo IDictionary.</param>
+        /// <param name="dictionary">Object of IDictionary type.</param>
         /// <returns></returns>
         public static bool IsEmpty(this IDictionary dictionary)
         {
@@ -16,9 +19,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna se uma lista é vazia.
+        /// Returns if our list is empty.
         /// </summary>
-        /// <param name="list">Objeto do tipo IList.</param>
+        /// <param name="list">Object of IList type.</param>
         /// <returns></returns>
         public static bool IsEmpty(this IList list)
         {
@@ -26,9 +29,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna se uma coleção é vazia.
+        /// Returns if our collection is empty.
         /// </summary>
-        /// <param name="collection">Objeto do tipo ICollection.</param>
+        /// <param name="collection">Object of ICollection type.</param>
         /// <returns></returns>
         public static bool IsEmpty(this ICollection collection)
         {
@@ -36,19 +39,17 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Extensão utilizada para descobrir se uma coleção de objetos possui itens.
-        /// <para>Exemplo: if(MyCollection.IsEmpty() == true)</para>
+        /// Returns if our collection is empty.
+        /// <para>Example: if(MyCollection.IsEmpty() == true)</para>
         /// </summary>
-        /// <param name="objeto">Objeto do tipo Lista.</param>
-        /// <returns>
-        /// Retorna se a lista está vazia.
-        /// </returns>        
-        public static bool IsEmpty<T>(this ICollection<T> objeto)
+        /// <param name="collection">Object of ICollection type.</param>
+        /// <returns></returns>        
+        public static bool IsEmpty<T>(this ICollection<T> collection)
         {
-            if (objeto == null)
+            if (collection == null)
                 return true;
             else
-                return (objeto.Count == 0);
+                return (collection.Count == 0);
         }
     }
 }

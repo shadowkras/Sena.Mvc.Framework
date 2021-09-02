@@ -5,84 +5,87 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods to work with Microsoft.Extensions.Caching.
+    /// </summary>
     public static class CacheExtensions
     {
         /// <summary>
-        /// Salva uma resposta no memory cache da aplicação e retorna o resultado como string.
+        /// Saves a memory cache response and returns the result as a string.
         /// </summary>
-        /// <typeparam name="TEntity">Tipo da entidade.</typeparam>
-        /// <param name="cache">Instância do IMemoryCache.</param>
-        /// <param name="chave">Chave do chave (necessita ser única).</param>
-        /// <param name="metodo">Método a ser executado para obter os dados.</param>
-        /// <param name="condicao">Condição do método.</param>
+        /// <typeparam name="TEntity">Type of source entity.</typeparam>
+        /// <param name="cache">IMemoryCache instance.</param>
+        /// <param name="key">Cache key (needs to be unique).</param>
+        /// <param name="method">Method that will be executed to get the data we want..</param>
+        /// <param name="condition">Condition expression for the method.</param>
         /// <returns></returns>
-        public static async Task<string> RespostaCacheString<TEntity>(this IMemoryCache cache, string chave,
-                                                                      Func<Expression<Func<TEntity, bool>>, Task<string>> metodo,
-                                                                      Expression<Func<TEntity, bool>> condicao = null)
+        public static async Task<string> ResponseCacheString<TEntity>(this IMemoryCache cache, string key,
+                                                                      Func<Expression<Func<TEntity, bool>>, Task<string>> method,
+                                                                      Expression<Func<TEntity, bool>> condition = null)
         {
-            if (cache.TryGetValue(chave, out string cacheEntry) == false)
+            if (cache.TryGetValue(key, out string cacheEntry) == false)
             {
                 var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(60));
 
-                var dados = await metodo(condicao);
+                var dados = await method(condition);
                 cacheEntry = dados;
 
-                cache.Set(chave, cacheEntry, cacheEntryOptions);
+                cache.Set(key, cacheEntry, cacheEntryOptions);
             }
 
             return cacheEntry;
         }
 
         /// <summary>
-        /// Salva uma resposta no memory cache da aplicação e retorna o resultado como objeto.
+        /// Saves a memory cache response and returns the result as an object.
         /// </summary>
-        /// <typeparam name="TEntity">Tipo da entidade.</typeparam>
-        /// <param name="cache">Instância do IMemoryCache.</param>
-        /// <param name="chave">Chave do chave (necessita ser única).</param>
-        /// <param name="metodo">Método a ser executado para obter os dados.</param>
-        /// <param name="condicao">Condição do método.</param>
-        public static async Task<object> RespostaCacheObject<TEntity>(this IMemoryCache cache, string chave,
-                                                                      Func<Expression<Func<TEntity, bool>>, Task<object>> metodo,
-                                                                      Expression<Func<TEntity, bool>> condicao = null)
+        /// <typeparam name="TEntity">Type of source entity.</typeparam>
+        /// <param name="cache">IMemoryCache instance.</param>
+        /// <param name="key">Cache key (needs to be unique).</param>
+        /// <param name="method">Method that will be executed to get the data we want..</param>
+        /// <param name="condition">Condition expression for the method.</param>
+        public static async Task<object> ResponseCacheObject<TEntity>(this IMemoryCache cache, string key,
+                                                                      Func<Expression<Func<TEntity, bool>>, Task<object>> method,
+                                                                      Expression<Func<TEntity, bool>> condition = null)
         {
-            if (cache.TryGetValue(chave, out object cacheEntry) == false)
+            if (cache.TryGetValue(key, out object cacheEntry) == false)
             {
                 var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(60));
 
-                var dados = await metodo(condicao);
+                var dados = await method(condition);
                 cacheEntry = dados;
 
-                cache.Set(chave, cacheEntry, cacheEntryOptions);
+                cache.Set(key, cacheEntry, cacheEntryOptions);
             }
 
             return cacheEntry;
         }
 
         /// <summary>
-        /// Retorna um objeto do cache de memória da aplicação.
+        /// Obtains an object from the application memory cache.
         /// </summary>
-        /// <param name="cache">Instância do IMemoryCache.</param>
-        /// <param name="chave">Chave do chave (necessita ser única).</param>
+        /// <param name="cache">IMemoryCache instance.</param>
+        /// <param name="key">Cache key (needs to be unique).</param>
         /// <returns></returns>
-        public static object ObterCache(this IMemoryCache cache, string chave)
+        public static object GetCache(this IMemoryCache cache, string key)
         {
-            cache.TryGetValue(chave, out object cacheEntry);
+            cache.TryGetValue(key, out object cacheEntry);
             return cacheEntry;
         }
 
         /// <summary>
-        /// Salva um objeto no cache de memória da aplicação.
+        /// Saves an object in the application memory cache.
         /// </summary>
-        /// <param name="cache">Instância do IMemoryCache.</param>
-        /// <param name="chave">Chave do chave (necessita ser única).</param>
-        /// <param name="objeto">Objeto a ser salvo.</param>
-        /// <param name="duracao">Duração do cache, em segundos.</param>
-        public static void SalvarCache(this IMemoryCache cache, string chave, object objeto, int duracao = 60)
+        /// <param name="cache">IMemoryCache instance.</param>
+        /// <param name="key">Cache key (needs to be unique).</param>
+        /// <param name="dataObject">Object with data to be saved.</param>
+        /// <param name="duration">Cache duration, in seconds.</param>
+        public static void SaveCache(this IMemoryCache cache, string key, object dataObject, int duration = 60)
         {
-            if (cache.TryGetValue(chave, out object cacheEntry) == false)
+            if (cache.TryGetValue(key, out object cacheEntry) == false)
             {
-                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(duracao));
-                cache.Set(chave, objeto, cacheEntryOptions);
+                var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(duration));
+                cache.Set(key, dataObject, cacheEntryOptions);
             }
         }
     }

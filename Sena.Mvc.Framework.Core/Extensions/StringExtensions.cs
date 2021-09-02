@@ -5,12 +5,15 @@ using System.Text.RegularExpressions;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods for string objects.
+    /// </summary>
     public static class StringExtensions
     {
         /// <summary>
-        /// Remove espaços em branco de uma string.
+        /// Remove empty spaces in a string
         /// </summary>
-        /// <param name="value">Valor atual da propriedade.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns></returns>
         public static string RemoveSpace(this string value)
         {
@@ -18,10 +21,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Substitui todos os caracteres de uma string por outro caractere.
+        /// Replaces all instances of a specific character in a string for empty space.
         /// </summary>
-        /// <param name="value">Valor atual da propriedade.</param>
-        /// <param name="caractere">Novo caractere a ser substituído.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="caractere">Character to be replaced.</param>
         /// <returns></returns>
         public static string ReplaceAll(this string value, string caractere)
         {
@@ -29,11 +32,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Substitui todos os caracteres de uma string por outro caractere.
+        /// Replaces all instances of a specific character in a string for empty space.
         /// </summary>
-        /// <param name="value">Valor atual da propriedade.</param>
-        /// <param name="caractere">Novo caractere a ser substituído.</param>
-        /// <param name="filtro">Lista de caracteres (chars) a serem ignorados.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="caractere">Character to be replaced.</param>
+        /// <param name="filtro">List of characters to be ignored.</param>
         /// <returns></returns>
         public static string ReplaceAll(this string value, string caractere, System.Collections.Generic.List<char> filtro)
         {
@@ -54,11 +57,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Converte uma string em uma array de bytes com base 64.
+        /// Converts a string into a base 64 byte array.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// A base 64 byte array with the converted value.
         /// </returns>
         public static byte[] AsStringBase64(this string value)
         {
@@ -74,11 +77,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Converte uma string para uma array de bytes UTF8.
+        /// Converts a string into an UTF8 byte array.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// A byte array with the converted value.
         /// </returns>
         public static byte[] AsByteArray(this string value)
         {
@@ -86,11 +89,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Converte uma string para long.
+        /// Converts a string to long.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static long AsLong(this string value)
         {
@@ -98,11 +101,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Converte uma string para inteiro.
+        /// Converts a string to integer.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static int AsInt(this string value)
         {
@@ -110,12 +113,12 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to an integer and specifies a default value.
+        /// Converts a string to an integer and specifies a default value.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static short AsShort(this string value, short defaultValue)
         {
@@ -125,11 +128,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.Int16" /> number.
+        /// Converts a string to a <see cref="T:System.Int16" /> number.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static short AsShort(this string value)
         {
@@ -137,12 +140,12 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a a long and specifies a default value.
+        /// Converts a string to a a long and specifies a default value.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static long AsLong(this string value, long defaultValue)
         {
@@ -152,12 +155,12 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to an integer and specifies a default value.
+        /// Converts a string to an integer and specifies a default value.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static int AsInt(this string value, int defaultValue)
         {
@@ -167,11 +170,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.Decimal" /> number.
+        /// Converts a string to a <see cref="T:System.Decimal" /> number.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static decimal AsDecimal(this string value)
         {
@@ -179,10 +182,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.Decimal" /> number and specifies a default value.
+        /// Converts a string to a <see cref="T:System.Decimal" /> number and specifies a default value.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null or invalid.</param>
@@ -192,11 +195,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.Single" /> number.
+        /// Converts a string to a <see cref="T:System.Single" /> number.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static float AsFloat(this string value)
         {
@@ -204,10 +207,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.Single" /> number and specifies a default value.
+        /// Converts a string to a <see cref="T:System.Single" /> number and specifies a default value.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null.</param>
@@ -219,11 +222,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.DateTime" /> value.
+        /// Converts a string to a <see cref="T:System.DateTime" /> value.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static DateTime AsDateTime(this string value)
         {
@@ -231,15 +234,15 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a <see cref="T:System.DateTime" /> value and specifies a default value.
+        /// Converts a string to a <see cref="T:System.DateTime" /> value and specifies a default value.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <param name="defaultValue">
-        ///     The value to return if <paramref name="value" /> is null or is an invalid value. The default
-        ///     is the minimum time value on the system.
+        /// The value to return if <paramref name="value" /> is null or is an invalid value. The default
+        /// is the minimum time value on the system.
         /// </param>
         public static DateTime AsDateTime(this string value, DateTime defaultValue)
         {
@@ -249,10 +252,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a strongly typed value of the specified data type.
+        /// Converts a string to a strongly typed value of the specified data type.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <typeparam name="TValue">The data type to convert to.</typeparam>
@@ -262,11 +265,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a Boolean (true/false) value.
+        /// Converts a string to a Boolean (true/false) value.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns>
-        /// O valor convertido.
+        /// The converted value.
         /// </returns>
         public static bool AsBool(this string value)
         {
@@ -274,10 +277,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to a Boolean (true/false) value and specifies a default value.
+        /// Converts a string to a Boolean (true/false) value and specifies a default value.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
@@ -289,10 +292,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Converts a string to the specified data type and specifies a default value.
+        /// Converts a string to the specified data type and specifies a default value.
         /// </summary>
         /// <returns>
-        ///     The converted value.
+        /// The converted value.
         /// </returns>
         /// <param name="value">The value to convert.</param>
         /// <param name="defaultValue">The value to return if <paramref name="value" /> is null.</param>
@@ -318,10 +321,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to the Boolean (true/false) type.
+        /// Checks whether a string can be converted to the Boolean (true/false) type.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsBool(this string value)
@@ -331,10 +334,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to a long.
+        /// Checks whether a string can be converted to a long.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsLong(this string value)
@@ -344,10 +347,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to an integer.
+        /// Checks whether a string can be converted to an integer.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsInt(this string value)
@@ -357,10 +360,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to the <see cref="T:System.Decimal" /> type.
+        /// Checks whether a string can be converted to the <see cref="T:System.Decimal" /> type.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsDecimal(this string value)
@@ -369,10 +372,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to the <see cref="T:System.Single" /> type.
+        /// Checks whether a string can be converted to the <see cref="T:System.Single" /> type.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsFloat(this string value)
@@ -382,10 +385,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to the <see cref="T:System.DateTime" /> type.
+        /// Checks whether a string can be converted to the <see cref="T:System.DateTime" /> type.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The string value to test.</param>
         public static bool IsDateTime(this string value)
@@ -395,10 +398,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        ///     Checks whether a string can be converted to the specified data type.
+        /// Checks whether a string can be converted to the specified data type.
         /// </summary>
         /// <returns>
-        ///     true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+        /// true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
         /// </returns>
         /// <param name="value">The value to test.</param>
         /// <typeparam name="TValue">The data type to convert to.</typeparam>
@@ -476,7 +479,7 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Converte um objeto em outro tipo.
+        /// Convert an object into another type.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="value"></param>
@@ -490,10 +493,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Função para retornar os n primeiros caracteres a <c>esquerda</c> de uma string.
+        /// Returns the first n characters to the left side of a string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="length">Inteiro com a quantidade de caracteres.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="length">The number of characters to return.</param>
         /// <returns></returns>
         public static string Left(this string value, int length)
         {
@@ -511,28 +514,28 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Função para retornar todos os caracteres a <c>direita</c> de uma string, a partir de um caractere específico.
+        /// Returns all the characters to the left side of a string, starting on a specific character.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="caractere">Caractere a ser procurado.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="startingPoint">Character that is our starting point.</param>
         /// <returns></returns>
-        public static string Left(this string value, char caractere)
+        public static string Left(this string value, char startingPoint)
         {
-            return Left(value, caractere.ToString());
+            return Left(value, startingPoint.ToString());
         }
 
         /// <summary>
-        /// Função para retornar os caracteres a <c>esquerda</c> de um determinado caractere em uma string.
+        /// Returns all the characters to the left side of a string, starting on a specific string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="caracteres">String de caracteres a serem procurados.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="startingPoint">String that is our starting point.</param>
         /// <returns></returns>
-        public static string Left(this string value, string caracteres)
+        public static string Left(this string value, string startingPoint)
         {
             try
             {
                 string retorno = value;
-                int idx = value.IndexOf(caracteres);
+                int idx = value.IndexOf(startingPoint);
                 if (idx != -1)
                 {
                     retorno = value.Substring(0, idx);
@@ -546,10 +549,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Função para retornar os n primeiros caracteres a <c>direita</c> de uma string.
+        /// Returns the first n characters to the right side of a string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="length">Inteiro com a quantidade de caracteres.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="length">The number of characters to return.</param>
         /// <returns></returns>
         public static string Right(this string value, int length)
         {
@@ -567,31 +570,31 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Função para retornar todos os caracteres a <c>direita</c> de uma string, a partir de um caractere específico.
+        /// Returns all the characters to the right side of a string, starting on a specific character.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="caractere">Caractere a ser procurado.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="startingPoint">Character that is our starting point.</param>
         /// <returns></returns>
-        public static string Right(this string value, char caractere)
+        public static string Right(this string value, char startingPoint)
         {
-            return Right(value, caractere.ToString());
+            return Right(value, startingPoint.ToString());
         }
 
         /// <summary>
-        /// Função para retornar todos os caracteres a <c>direita</c> de uma string, a partir de um caractere específico.
+        /// Returns all the characters to the right side of a string, starting on a specific string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="caracteres">String de caracteres a serem procurados.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="startingPoint">String that is our starting point.</param>
         /// <returns></returns>
-        public static string Right(this string value, string caracteres)
+        public static string Right(this string value, string startingPoint)
         {
             try
             {
                 string retorno = value;
-                int idx = value.IndexOf(caracteres);
+                int idx = value.IndexOf(startingPoint);
                 if (idx != -1)
                 {
-                    retorno = value.Substring(idx + caracteres.Length);
+                    retorno = value.Substring(idx + startingPoint.Length);
                 }
                 return retorno;
             }
@@ -602,13 +605,13 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Função para retornar os n primeiros caracteres a <c>direita</c> de uma string, a partir de um caractere específico.
+        /// Returns the first n characters to the right side of a string, starting on a specific character.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
-        /// <param name="caractere">Caractere a ser procurado.</param>
-        /// <param name="length">Inteiro com a quantidade de caracteres.</param>
+        /// <param name="value">String of characters.</param>
+        /// <param name="startingPoint">Char that is our starting point.</param>
+        /// <param name="length">The number of characters to return.</param>
         /// <returns></returns>
-        public static string Right(this string value, char caractere, int length)
+        public static string Right(this string value, char startingPoint, int length)
         {
             try
             {
@@ -616,7 +619,7 @@ namespace Sena.Mvc.Framework.Core.Extensions
                 int idx = -1;
                 while (length > 0)
                 {
-                    idx = value.IndexOf(caractere, idx + 1);
+                    idx = value.IndexOf(startingPoint, idx + 1);
                     if (idx == -1)
                     {
                         break;
@@ -638,9 +641,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna se uma string é vazia.
+        /// Returns if our string is null or empty.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">String of characters.</param>
         /// <returns></returns>
         public static bool IsEmpty(this string value)
         {

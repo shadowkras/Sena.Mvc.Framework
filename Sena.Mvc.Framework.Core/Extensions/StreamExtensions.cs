@@ -5,6 +5,9 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods for memory streams.
+    /// </summary>
     public static class StreamExtensions
     {
         /// <summary>

@@ -5,17 +5,20 @@ using System;
 
 namespace Sena.Mvc.Framework.Views.Extensions
 {
+    /// <summary>
+    /// Exntesion methods for UrlHelpers.
+    /// </summary>
     public static class UrlHelperExtensions
     {
         #region Absolute Action
 
         /// <summary>
-        /// Retorna uma string com a rota com o caminho da controller e action desejada.
+        /// Returns a string with the route path of a specific controller and action.
         /// </summary>
-        /// <param name="url">Classe de UrlHelper.</param>
-        /// <param name="actionName">Nome da Action que será invocada.</param>
-        /// <param name="controllerName">Nome da Controller que será acessada.</param>
-        /// <param name="routeValues">Valores das rotas para chegar ao destino.</param>
+        /// <param name="url">UrlHelper class.</param>
+        /// <param name="controllerName">Controller name that will be called.</param>
+        /// <param name="actionName">Action name that will be called.</param>
+        /// <param name="routeValues">Route values that will be called.</param>
         /// <returns>A URL absoluta.</returns>
         public static string AbsoluteAction(this UrlHelper url, string controllerName, string actionName, object routeValues = null)
         {
@@ -28,10 +31,10 @@ namespace Sena.Mvc.Framework.Views.Extensions
         #region Absolute Content
 
         /// <summary>
-        /// Retorna uma string com a URL do caminho para o conteúdo especificado.
-        /// <para>Converte um caminho virtual (relativo) para o caminho absoluto da aplicação.</para>
+        /// Returns a string URL with the path to the specified content.
+        /// <para>Converts a virtual path (relative) to our application absolute path.</para>
         /// </summary>
-        /// <param name="url">The URL helper.</param>
+        /// <param name="url">UrlHelper class.</param>
         /// <param name="contentPath">The content path.</param>
         /// <returns>The absolute URL.</returns>
         public static string AbsoluteContent(this IUrlHelper url, string contentPath)
@@ -45,11 +48,11 @@ namespace Sena.Mvc.Framework.Views.Extensions
         #region Absolute Route Url
 
         /// <summary>
-        /// Cria uma URL absoluta "fully qualified" para a rota especifica usando o nome da rota e valores.
+        /// Creates a "fully qualified" URL route using the specified route name and values.
         /// </summary>
-        /// <param name="url">The URL helper.</param>
+        /// <param name="url">UrlHelper class interface.</param>
         /// <param name="routeName">Name of the route.</param>
-        /// <param name="routeValues">The route values.</param>
+        /// <param name="routeValues">Route values that will be called.</param>
         /// <returns>The absolute URL.</returns>
         public static string AbsoluteRouteUrl(this IUrlHelper url, string routeName, object routeValues = null)
         {
@@ -61,27 +64,26 @@ namespace Sena.Mvc.Framework.Views.Extensions
         #region Absolute Url
 
         /// <summary>
-        /// Cria uma url absoluta "fully qualified" para uma action de uma controller, a area atual.
+        /// Creates a "fully qualified" absolute url to an action of a controller on current area.
         /// </summary>
         /// <param name="url">Classe de UrlHelper.</param>
-        /// <param name="controller">Nome da controler com a action</param>
-        /// <param name="action">Nome da action que será invocada.</param>
-        /// <param name="routeValues">Valores das rotas para chegar ao destino.</param>
+        /// <param name="controllerName">Controller name that will be called.</param>
+        /// <param name="actionName">Action name that will be called.</param>
+        /// <param name="routeValues">Route values that will be called.</param>
         /// <returns>A URL absoluta.</returns>
-        public static string GetAbsoluteUrl(this UrlHelper url, string controller, string action, object routeValues = null)
+        public static string GetAbsoluteUrl(this UrlHelper url, string controllerName, string actionName, object routeValues = null)
         {
             string scheme = url.ActionContext.HttpContext.Request.Scheme;
-            var uri = url.Action(action, controller, routeValues, scheme);
+            var uri = url.Action(actionName, controllerName, routeValues, scheme);
 
             return uri;
         }
 
         /// <summary>
-        /// Cria uma url absoluta "fully qualified" para uma action de uma controller.
+        /// Creates a "fully qualified" absolute url to an action on a specific controller and area.
         /// </summary>
-        /// <param name="url">Classe de UrlHelper.</param>
+        /// <param name="url">UrlHelper class.</param>
         /// <param name="areaName">Área onde a controller se localiza.</param>
-        /// <param name="subAreaName">Sub-área onde a controller se localiza.</param>
         /// <param name="controllerName">Nome da controler com a action</param>
         /// <param name="actionName">Nome da action que será invocada.</param>
         /// <returns>A URL absoluta.</returns>
@@ -93,43 +95,42 @@ namespace Sena.Mvc.Framework.Views.Extensions
         }
 
         /// <summary>
-        /// Cria uma url absoluta "fully qualified" para uma action, assumindo a area e controller atual.
+        /// Creates a "fully qualified" absolute url to an action on current area and controller.
         /// </summary>
-        /// <param name="url">Classe de UrlHelper.</param>
-        /// <param name="action">Nome da action que será invocada.</param>
-        /// <param name="routeValues">Valores das rotas para chegar ao destino.</param>
+        /// <param name="url">UrlHelper class interface.</param>
+        /// <param name="actionName">Action name that will be called.</param>
+        /// <param name="routeValues">Route values that will be called.</param>
         /// <returns>A URL absoluta.</returns>
-        public static string GetAbsoluteUrl(this IUrlHelper url, string action, object routeValues = null)
+        public static string GetAbsoluteUrl(this IUrlHelper url, string actionName, object routeValues = null)
         {
             var urlHelper = new UrlHelper(url.ActionContext);
             var values = urlHelper.ActionContext.RouteData.Values;
             var controller = values["controller"].ToString();
 
-            return GetAbsoluteUrl(url, controller, action, routeValues);
+            return GetAbsoluteUrl(url, controller, actionName, routeValues);
         }
 
         /// <summary>
-        /// Cria uma url absoluta "fully qualified" para uma action de uma controller, a area atual.
+        /// Creates a "fully qualified" absolute url to a controller and action on current area
         /// </summary>
-        /// <param name="url">Interface da classe de UrlHelper.</param>
-        /// <param name="controller">Nome da controler com a action</param>
-        /// <param name="action">Nome da action que será invocada.</param>
-        /// <param name="routeValues">Valores das rotas para chegar ao destino.</param>
+        /// <param name="url">UrlHelper class interface.</param>
+        /// <param name="controllerName">Controller name that will be called.</param>
+        /// <param name="actionName">Action name that will be called.</param>
+        /// <param name="routeValues">Route values that will be called.</param>
         /// <returns>A URL absoluta.</returns>
-        public static string GetAbsoluteUrl(this IUrlHelper url, string controller, string action, object routeValues = null)
+        public static string GetAbsoluteUrl(this IUrlHelper url, string controllerName, string actionName, object routeValues = null)
         {
             string scheme = url.ActionContext.HttpContext.Request.Scheme;
-            return url.Action(action, controller, routeValues, scheme);
+            return url.Action(actionName, controllerName, routeValues, scheme);
         }
 
         /// <summary>
-        /// Cria uma url absoluta "fully qualified" para uma action de uma controller.
+        /// Creates a "fully qualified" absolute url to a controller and action.
         /// </summary>
-        /// <param name="url">Interface da classe de UrlHelper.</param>
+        /// <param name="url">UrlHelper class interface.</param>
         /// <param name="areaName">Área onde a controller se localiza.</param>
-        /// <param name="subAreaName">Sub-área onde a controller se localiza.</param>
-        /// <param name="controllerName">Nome da controler com a action</param>
-        /// <param name="actionName">Nome da action que será invocada.</param>
+        /// <param name="controllerName">Controller name that will be called.</param>
+        /// <param name="actionName">Action name that will be called.</param>
         /// <returns>A URL absoluta.</returns>
         public static string GetAbsoluteUrl(this IUrlHelper url, string areaName,
                                             string controllerName, string actionName)

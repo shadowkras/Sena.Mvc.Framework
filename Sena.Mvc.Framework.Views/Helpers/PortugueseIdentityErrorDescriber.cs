@@ -5,6 +5,9 @@ using System.Text;
 
 namespace Sena.Mvc.Framework.Views.Helpers
 {
+    /// <summary>
+    /// Description for identity framework errors in Portuguese.
+    /// </summary>
     public class PortugueseIdentityErrorDescriber : IdentityErrorDescriber
     {
         public override IdentityError DefaultError()

@@ -2,24 +2,27 @@
 
 namespace Sena.Mvc.Framework.Views.ViewModels
 {
+    /// <summary>
+    /// View model for status code views.
+    /// </summary>
     public class StatusCodeViewModel
     {
         public int StatusCode { get; private set; }
-        public List<string> Mensagens { get; private set; }
+        public List<string> Messages { get; private set; }
         public string ReturnUrl { get; private set; }
 
-        public StatusCodeViewModel(int statusCode, List<string> mensagens, string returnUrl)
+        public StatusCodeViewModel(int statusCode, List<string> messages, string returnUrl)
         {
             StatusCode = statusCode;
-            Mensagens = mensagens;
+            Messages = messages;
             ReturnUrl = returnUrl;
         }
 
-        public StatusCodeViewModel(int statusCode, string mensagem, string returnUrl)
+        public StatusCodeViewModel(int statusCode, string message, string returnUrl)
         {
             StatusCode = statusCode;
-            Mensagens = new List<string>();
-            Mensagens.Add(mensagem);
+            Messages = new List<string>();
+            Messages.Add(message);
             ReturnUrl = returnUrl;
         }
     }

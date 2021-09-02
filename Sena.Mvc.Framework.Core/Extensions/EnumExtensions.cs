@@ -7,16 +7,16 @@ using System.Reflection;
 namespace Sena.Mvc.Framework.Core.Extensions
 {
     /// <summary>
-    /// Classe de métodos de extensão para enums.
+    /// Extension methods for Enums.
     /// </summary>
     public static class EnumExtensions
     {
         /// <summary>
-        /// Retorna Display (Name) da propriedade do enumerador.
+        /// Returns the Display (Name) for an enumerator item.
         /// </summary>
-        /// <param name="enumerador">Enumerador a ser recuperado.</param>
+        /// <param name="enumerador">Enumerator item.</param>
         /// <returns></returns>
-        public static string DescricaoEnum(this Enum enumerador)
+        public static string EnumDescription(this Enum enumerador)
         {
             return enumerador.GetType()
                              .GetMember(enumerador.ToString())
@@ -27,18 +27,18 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna os valores de um enum como uma lista.
+        /// Returns the values of an enum as a list.
         /// </summary>
-        /// <typeparam name="T">Tipo do Enum.</typeparam>
+        /// <typeparam name="T">Type of the Enum.</typeparam>
         public static IList<T> GetValues<T>() where T : struct, IEnumConstraint
         {
             return EnumInternals<T>.Values;
         }
 
         /// <summary>
-        /// Retorna uma array com os nomes dos itens em um enum.
+        /// Returns a string array with the names of the items of an enum.
         /// </summary>
-        /// <typeparam name="T">Tipo do Enum.</typeparam>
+        /// <typeparam name="T">Type of the Enum.</typeparam>
         /// <returns></returns>
         public static string[] GetNamesArray<T>() where T : struct, IEnumConstraint
         {

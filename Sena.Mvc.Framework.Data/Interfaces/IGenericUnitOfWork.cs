@@ -2,6 +2,9 @@
 
 namespace Sena.Mvc.Framework.Data.Interfaces
 {
+    /// <summary>
+    /// Interface to implement a generic UnitOfWork class.
+    /// </summary>
     public interface IGenericUnitOfWork
     {
         /// <summary>

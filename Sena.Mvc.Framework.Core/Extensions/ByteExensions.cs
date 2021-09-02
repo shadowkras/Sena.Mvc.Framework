@@ -1,16 +1,16 @@
 ﻿namespace Sena.Mvc.Framework.Core.Extensions
 {
     /// <summary>
-    /// Extensões para objetos do tipo byte[].
+    /// Extension methods for byte[] objects.
     /// </summary>
     public static class ByteExensions
     {
         /// <summary>
-        /// Converte um array de bytes em uma string UTF8.
+        /// Converts a byte array into an UTF8 string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">Byte array with data.</param>
         /// <returns>
-        /// O valor convertido.
+        /// UTF8 string with converted data.
         /// </returns>
         public static string AsString(this byte[] value)
         {
@@ -23,11 +23,11 @@
         }
 
         /// <summary>
-        /// Converte um array de bytes em uma string de base 64.
+        /// Converts a byte array into a base 64 string.
         /// </summary>
-        /// <param name="value">String de caracteres.</param>
+        /// <param name="value">Byte array with data.</param>
         /// <returns>
-        /// O valor convertido.
+        /// Base 64 string with converted data.
         /// </returns>
         public static string AsStringBase64(this byte[] value)
         {

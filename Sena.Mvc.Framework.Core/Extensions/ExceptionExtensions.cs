@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Extension methods for Exceptions.
+    /// </summary>
     public static class ExceptionExtensions
     {
         /// <summary>
@@ -15,13 +18,13 @@ namespace Sena.Mvc.Framework.Core.Extensions
         {
             if (source == null)
             {
-                throw new Exception($"Exceção não encontrada para {source.ToString()}.");
+                throw new Exception($"No exception found for {source.ToString()}.");
             }
             else
             {
                 if (string.IsNullOrEmpty(source.Message) == true)
                 {
-                    throw new Exception($"Nenhuma mensagem de exceção encontrada para {source.ToString()}.");
+                    throw new Exception($"No exception message found for {source.ToString()}.");
                 }
                 else
                 {
@@ -48,13 +51,13 @@ namespace Sena.Mvc.Framework.Core.Extensions
 
             if (source == null)
             {
-                throw new Exception($"Exceção não encontrada para {source.ToString()}.");
+                throw new Exception($"No exception found for {source.ToString()}.");
             }
             else
             {
                 if (string.IsNullOrEmpty(source.Message) == true)
                 {
-                    throw new Exception($"Nenhuma mensagem de exceção encontrada para {source.ToString()}.");
+                    throw new Exception($"No exception message found for {source.ToString()}.");
                 }
                 else
                 {
@@ -73,9 +76,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna um novo hash como identificador do exception.
+        /// Returns a new hash as the exception unique identifier.
         /// </summary>
-        /// <param name="source">Classe de exceção.</param>
+        /// <param name="source">Exception class.</param>
         /// <returns></returns>
         public static string GetHashId(this Exception source)
         {
@@ -98,9 +101,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna o caminho dos arquivos para a origem do exception.
+        /// Returns the file path to the exception origin.
         /// </summary>
-        /// <param name="source">Classe de exceção.</param>
+        /// <param name="source">Exception class.</param>
         /// <returns></returns>
         public static string GetStackPathToString(this Exception source)
         {
@@ -118,19 +121,19 @@ namespace Sena.Mvc.Framework.Core.Extensions
                 }
                 else
                 {
-                    return source.Source ?? "Origem desconhecida";
+                    return source.Source ?? "Unknown source";
                 }
             }
             else
             {
-                return source.Source ?? "Origem desconhecida";
+                return source.Source ?? "Unknown source";
             }
         }
 
         /// <summary>
-        /// Retorna uma lista dos arquivos no caminho para o exception.
+        /// Returns a list of file names leading to the exception origin.
         /// </summary>
-        /// <param name="source">Classe de exceção.</param>
+        /// <param name="source">Exception class.</param>
         /// <returns></returns>
         public static IEnumerable<string> GetStackPath(this Exception source)
         {
@@ -155,9 +158,9 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Retorna o StackTrace completo do exception como string.
+        /// Returns the full StackTrace as a string.
         /// </summary>
-        /// <param name="source">Classe de exceção.</param>
+        /// <param name="source">Exception class.</param>
         /// <returns></returns>
         public static string GetStackTrace(this Exception source)
         {
@@ -165,7 +168,7 @@ namespace Sena.Mvc.Framework.Core.Extensions
 
             if (source == null)
             {
-                stackTrace = $"Exceção não encontrada para {source.ToString()}.";
+                stackTrace = $"Exception not found for {source.ToString()}.";
             }
             else
             {
@@ -179,7 +182,7 @@ namespace Sena.Mvc.Framework.Core.Extensions
                 }
                 else
                 {
-                    stackTrace = $"Exceção {source.ToString()} sem StackTrace.";
+                    stackTrace = $"Exception {source.ToString()} without StackTrace.";
                 }
             }
 
@@ -187,19 +190,19 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Busca a mensagem dos InnerExceptions da exceção.
+        /// Gets the Inner Exception messages.
         /// </summary>
-        /// <param name="exception">Classe de exceção.</param>
+        /// <param name="source">Exception class.</param>
         /// <returns></returns>
-        private static string InnerExceptionMessage(Exception exception)
+        private static string InnerExceptionMessage(Exception source)
         {
-            if (exception.InnerException == null)
+            if (source.InnerException == null)
             {
-                return exception.Message;
+                return source.Message;
             }
             else
             {
-                return exception.Message + Environment.NewLine + InnerExceptionMessage(exception.InnerException);
+                return source.Message + Environment.NewLine + InnerExceptionMessage(source.InnerException);
             }
         }
     }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Sena.Mvc.Framework.Data.Resources
+﻿namespace Sena.Mvc.Framework.Data.Resources
 {
     internal static class Info
     {

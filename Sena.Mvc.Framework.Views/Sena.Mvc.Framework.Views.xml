@@ -1,0 +1,456 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sena.Mvc.Framework.Views</name>
+    </assembly>
+    <members>
+        <member name="T:Sena.Mvc.Framework.Views.Attributes.GoogleReCaptchaValidationAttribute">
+            <summary>
+            Attribute to validate google reCAPTCHA.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Attributes.GoogleReCaptchaValidationAttribute.IsValid(System.Object,System.ComponentModel.DataAnnotations.ValidationContext)">
+            <summary>
+            Checks wether the reCAPTCHA is valid.
+            </summary>
+            <param name="value">Captcha response.</param>
+            <param name="validationContext">Validation context.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Controllers.BaseApiController">
+            <summary>
+            Controller class with commonly used properties and methods used by API controllers.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.Controllers.BaseApiController.ControllerName">
+            <summary>
+            Returns of the name of the controller without the "Controller" suffix.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseApiController.ReturnAsApiJson(System.Boolean,System.String,System.Object)">
+            <summary>
+            Returns our standard api object as json.
+            </summary>
+            <param name="isSuccess">Says wether the request was successful.</param>
+            <param name="message">Message to return by our API.</param>
+            <param name="data">Data returned by our API.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseApiController.ReturnAsErrorApiJson(System.Exception,System.String)">
+            <summary>
+            Return our standard api object with an error message in json format.
+            </summary>
+            <param name="ex">Exception with our error.</param>
+            <param name="message">Friendly message.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Controllers.BaseController">
+            <summary>
+            Controller class with commonly used methods and properties.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.Controllers.BaseController.IsPOSTMethod">
+            <summary>
+            Returns wether the current request is a POST method.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.Controllers.BaseController.ControllerName">
+            <summary>
+            Returns of the name of the controller without the "Controller" suffix.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.AddModelError(System.String)">
+            <summary>
+            Adds an error message to our mode state.
+            </summary>
+            <param name="message">Error message.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.AddModelError(System.Collections.Generic.IList{System.String})">
+            <summary>
+            Adds an error message to our mode state.
+            </summary>
+            <param name="messages">List of error messages.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.RetornAsApiJson(System.Boolean,System.String,System.Object)">
+            <summary>
+            Returns our standard api object as json.
+            </summary>
+            <param name="isSuccess">Says wether the request was successful.</param>
+            <param name="message">Message to return by our API.</param>
+            <param name="data">Data returned by our API.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.ReturnAsErrorApiJson(System.Exception,System.String)">
+            <summary>
+            Return our standard api object with an error message in json format.
+            </summary>
+            <param name="ex">Exception with our error.</param>
+            <param name="message">Friendly message.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.GetRequestUri">
+            <summary>
+            Returns the complete Uri of the current request.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.JsonExtensions">
+            <summary>
+            Extension methods to work with Json strings.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.JsonExtensions.SerializeJSON``1(``0,System.Boolean)">
+            <summary>
+            Convert a TEntity object into a JSON string.
+            </summary>
+            <param name="source">Object of TEntity type.</param>
+            <param name="loadNullProperties">Defines if properties with a null value should be serialize.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.JsonExtensions.DeserializeJSON``1(System.String,System.Boolean)">
+            <summary>
+            Converts a JSON string into an object of the TEntity type.
+            </summary>
+            <param name="source">JSON string.</param>
+            <param name="loadNullProperties">Defines if properties with a null value should be serialize.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions">
+            <summary>
+            Extension methods for the HtmlHelper class.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.ActionName(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+            <summary>
+            Return the action name that invoked our view.
+            </summary>
+            <param name="htmlHelper">HtmlHelper class interface.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.PageClass(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+            <summary>
+            Return the name of the current action on a view page.
+            </summary>
+            <param name="htmlHelper">HtmlHelper class interface</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.GetReturnUrl(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper)">
+            <summary>
+            Return the url that invoked the current request, to create a "return url".
+            </summary>
+            <param name="htmlHelper">HtmlHelper class interface.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.GetEnumSelectList``1(Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper,System.Object)">
+            <summary>
+            Return a SelectList with the itens in an enum.
+            </summary>
+            <param name="htmlHelper">HtmlHelper class interface.</param>
+            <param name="modelValue">Model value for default selected item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.ListEnum(System.Enum)">
+            <summary>
+            Return a list with the Display Names and values of the itens in an enumerator.
+            </summary>
+            <param name="source">Source enumerator.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HtmlHelperExtensions.ListEnum(System.Type)">
+            <summary>
+            Return a list with the Display Names and values of the itens in an enumerator.
+            </summary>
+            <param name="source">Type deve ser do tipo Enum (enumerador).</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.HttpRequestExtensions">
+            <summary>
+            Extension methods for HttpRequest class.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.HttpRequestExtensions.ToUri(Microsoft.AspNetCore.Http.HttpRequest)">
+            <summary>
+            Convert a request Uri with schema, host, path and query string.
+            </summary>
+            <param name="request">HttpRequest object instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions">
+            <summary>
+            Exntesion methods for UrlHelpers.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.AbsoluteAction(Microsoft.AspNetCore.Mvc.Routing.UrlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Returns a string with the route path of a specific controller and action.
+            </summary>
+            <param name="url">UrlHelper class.</param>
+            <param name="controllerName">Controller name that will be called.</param>
+            <param name="actionName">Action name that will be called.</param>
+            <param name="routeValues">Route values that will be called.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.AbsoluteContent(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String)">
+            <summary>
+            Returns a string URL with the path to the specified content.
+            <para>Converts a virtual path (relative) to our application absolute path.</para>
+            </summary>
+            <param name="url">UrlHelper class.</param>
+            <param name="contentPath">The content path.</param>
+            <returns>The absolute URL.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.AbsoluteRouteUrl(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.Object)">
+            <summary>
+            Creates a "fully qualified" URL route using the specified route name and values.
+            </summary>
+            <param name="url">UrlHelper class interface.</param>
+            <param name="routeName">Name of the route.</param>
+            <param name="routeValues">Route values that will be called.</param>
+            <returns>The absolute URL.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.GetAbsoluteUrl(Microsoft.AspNetCore.Mvc.Routing.UrlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Creates a "fully qualified" absolute url to an action of a controller on current area.
+            </summary>
+            <param name="url">Classe de UrlHelper.</param>
+            <param name="controllerName">Controller name that will be called.</param>
+            <param name="actionName">Action name that will be called.</param>
+            <param name="routeValues">Route values that will be called.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.GetAbsoluteUrl(Microsoft.AspNetCore.Mvc.Routing.UrlHelper,System.String,System.String,System.String)">
+            <summary>
+            Creates a "fully qualified" absolute url to an action on a specific controller and area.
+            </summary>
+            <param name="url">UrlHelper class.</param>
+            <param name="areaName">Área onde a controller se localiza.</param>
+            <param name="controllerName">Nome da controler com a action</param>
+            <param name="actionName">Nome da action que será invocada.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.GetAbsoluteUrl(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.Object)">
+            <summary>
+            Creates a "fully qualified" absolute url to an action on current area and controller.
+            </summary>
+            <param name="url">UrlHelper class interface.</param>
+            <param name="actionName">Action name that will be called.</param>
+            <param name="routeValues">Route values that will be called.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.GetAbsoluteUrl(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.Object)">
+            <summary>
+            Creates a "fully qualified" absolute url to a controller and action on current area
+            </summary>
+            <param name="url">UrlHelper class interface.</param>
+            <param name="controllerName">Controller name that will be called.</param>
+            <param name="actionName">Action name that will be called.</param>
+            <param name="routeValues">Route values that will be called.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.UrlHelperExtensions.GetAbsoluteUrl(Microsoft.AspNetCore.Mvc.IUrlHelper,System.String,System.String,System.String)">
+            <summary>
+            Creates a "fully qualified" absolute url to a controller and action.
+            </summary>
+            <param name="url">UrlHelper class interface.</param>
+            <param name="areaName">Área onde a controller se localiza.</param>
+            <param name="controllerName">Controller name that will be called.</param>
+            <param name="actionName">Action name that will be called.</param>
+            <returns>A URL absoluta.</returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.ViewEngineExtensions">
+            <summary>
+            Extension class to render views using Razor.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.ViewEngineExtensions.RenderPartialViewToString(Microsoft.AspNetCore.Mvc.Controller,System.String,System.Object,System.Boolean)">
+            <summary>
+            Renders a view with your view model values and returns as string.
+            </summary>
+            <param name="controller">Controller class.</param>
+            <param name="viewName">Nome of your view.</param>
+            <param name="model">Viewmodel with values for your view.</param>
+            <param name="partial">Says wether its a partial view.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.ViewEngineExtensions.RenderPartialViewToString(Microsoft.AspNetCore.Mvc.RazorPages.PageModel,System.String,System.Object,System.Boolean)">
+            <summary>
+            Renders a view with your view model values and returns as string.
+            </summary>
+            <param name="razorPage">RazorPage model class.</param>
+            <param name="viewName">Nome of your view.</param>
+            <param name="model">Viewmodel with values for your view.</param>
+            <param name="partial">Says wether its a partial view.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Extensions.ViewModelExtensions">
+            <summary>
+            Extension methods for view models.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.Extensions.ViewModelExtensions.DisplayName``1(``0,System.String)">
+            <summary>
+            Returns the value of the Name property of the Display attribute of an object.
+            </summary>
+            <param name="entity">Object with our data.</param>
+            <param name="propertyName">Name of the property to be found.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Helpers.JsonConverters">
+            <summary>
+            Json converter class to return Json objects.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.Helpers.PortugueseIdentityErrorDescriber">
+            <summary>
+            Description for identity framework errors in Portuguese.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.TagHelpers.ModalBodyTagHelper">
+            <summary>
+            The modal-body portion of a Bootstrap modal dialog
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.TagHelpers.ModalFooterTagHelper">
+            <summary>
+            The modal-footer portion of Bootstrap modal dialog
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalFooterTagHelper.ShowDismiss">
+            <summary>
+            Whether or not to show a button to dismiss the dialog.
+            Default: <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalFooterTagHelper.PrependChildren">
+            <summary>
+            Whether or not the childrem elements will be added before (prepend) or after (append) the close button.
+            Default: <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalFooterTagHelper.DismissText">
+            <summary>
+            The text to show on the Dismiss button
+            Default: Cancel
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.TagHelpers.ModalHeaderTagHelper">
+            <summary>
+            The modal-footer portion of Bootstrap modal dialog
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalHeaderTagHelper.ShowDismiss">
+            <summary>
+            Whether or not to show a button to dismiss the dialog.
+            Default: <c>true</c>
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalHeaderTagHelper.DismissText">
+            <summary>
+            The text to show on the Dismiss button
+            Default: x
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalHeaderTagHelper.Title">
+            <summary>
+            The text to show on the Title of the modal.
+            Default: Título
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.TagHelpers.ModalTagHelper">
+            <summary>
+            A Bootstrap modal dialog
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalTagHelper.Title">
+            <summary>
+            The title of the modal
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalTagHelper.Id">
+            <summary>
+            The Id of the modal
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.TagHelpers.ModalToggleTagHelper">
+            <summary>
+            Sets the element as the item that will toggle the specified Bootstrap modal dialog
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.TagHelpers.ModalToggleTagHelper.ToggleModal">
+            <summary>
+            The id of the modal that will be toggled by this element
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewComponents.VueSelect">
+            <summary>
+            Select component using VueJS.
+            <para>Documentation: https://vue-select.org/api/props.html </para>
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.ViewComponents.VueSelectViewModel.Placeholder">
+            <summary>
+            TODO: Component is not exibiting the defined placeholder.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.ErrorViewModel">
+            <summary>
+            View model class for error messages.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.ExceptionViewModel">
+            <summary>
+            View model class for exception errors.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.GoogleReCaptchaViewModelBase">
+            <summary>
+            Base class for google reCAPTCHA return.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel">
+            <summary>
+            Class to return standard API objects.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.IsSucess">
+            <summary>
+            Returns wether the request was successful.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.Message">
+            <summary>
+            Message to return by our API. Usually used as display message for errors.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.Data">
+            <summary>
+            Data returned by our API.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.ReturnNotFound">
+            <summary>
+            Defines if our APIs should return 404 if not successful.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.#ctor(System.Boolean,System.String,System.Object,System.Nullable{System.Boolean})">
+            <summary>
+            Standard constructor for an Return API class.
+            </summary>
+            <param name="isSuccess">Says wether the request was successful.</param>
+            <param name="message">Message to return by our API.</param>
+            <param name="data">Data returned by our API.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.ReturnAsJson(System.Boolean)">
+            <summary>
+            Returns the Return API class as a json object.
+            </summary>
+            <param name="displayNulls">Defines if we should serialize null and empty objects.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.StatusCodeViewModel">
+            <summary>
+            View model for status code views.
+            </summary>
+        </member>
+    </members>
+</doc>

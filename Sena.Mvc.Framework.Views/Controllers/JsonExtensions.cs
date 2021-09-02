@@ -4,21 +4,24 @@ using Sena.Mvc.Framework.Core.Extensions;
 
 namespace Sena.Mvc.Framework.Views.Extensions
 {
+    /// <summary>
+    /// Extension methods to work with Json strings.
+    /// </summary>
     public static class JsonExtensions
     {
         /// <summary>
-        /// Converte um objeto do tipo TEntity para uma string em Json.
+        /// Convert a TEntity object into a JSON string.
         /// </summary>
-        /// <param name="source">Objeto do tipo TEntity.</param>
-        /// <param name="carregarNulos">Converter objetos nulos e vazios no objecto.</param>
+        /// <param name="source">Object of TEntity type.</param>
+        /// <param name="loadNullProperties">Defines if properties with a null value should be serialize.</param>
         /// <returns></returns>
-        public static string SerializarJSON<TEntity>(this TEntity source, bool carregarNulos = false)
+        public static string SerializeJSON<TEntity>(this TEntity source, bool loadNullProperties = false)
         {
             string json = string.Empty;
 
             try
             {
-                if (carregarNulos == true)
+                if (loadNullProperties == true)
                 {
                     json = JsonConvert.SerializeObject(source, Helpers.JsonConverters.DefaultSettingsWithNulls);
                 }
@@ -40,13 +43,12 @@ namespace Sena.Mvc.Framework.Views.Extensions
         }
 
         /// <summary>
-        /// Converte uma string em JSON para um objeto do tipo informado.
+        /// Converts a JSON string into an object of the TEntity type.
         /// </summary>
-        /// <param name="source">String em JSON.</param>
-        /// <param name="type">Tipo do objeto a ser convertido.</param>
-        /// <param name="ignorarNulos">Converter objetos nulos e vazios.</param>
+        /// <param name="source">JSON string.</param>
+        /// <param name="loadNullProperties">Defines if properties with a null value should be serialize.</param>
         /// <returns></returns>
-        public static TEntity DeserializarJSON<TEntity>(this string source, bool ignorarNulos = false)
+        public static TEntity DeserializeJSON<TEntity>(this string source, bool loadNullProperties = false)
         {
             if (source == null)
             {
@@ -55,7 +57,7 @@ namespace Sena.Mvc.Framework.Views.Extensions
 
             try
             {
-                if (ignorarNulos == true)
+                if (loadNullProperties == true)
                 {
                     var json = JsonConvert.DeserializeObject(source, typeof(TEntity), Helpers.JsonConverters.DefaultSettingsWithNulls);
                     return (TEntity)json;

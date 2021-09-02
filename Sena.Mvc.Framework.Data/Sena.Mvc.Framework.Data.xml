@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sena.Mvc.Framework.Data</name>
+    </assembly>
+    <members>
+        <member name="T:Sena.Mvc.Framework.Data.Context.GenericContext`1">
+            <summary>
+            Generic DbContext to implement standard methods.
+            </summary>
+            <typeparam name="TContext">Context type.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.DatabaseConfig(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Abstract method to configure implement our database connection.
+            <para>Example:</para>
+            <para>optionsBuilder.UseSqlServer(connectionString);</para>
+            </summary>
+            <param name="optionsBuilder">Model building options.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.IgnoreEntities(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Virtual method to ignore specific entities from our context.
+            <para>Example:</para>
+            <para>modelBuilder.Ignore&lt;AspNetUsers&gt;();</para>
+            </summary>
+            <param name="modelBuilder">ModelBuilder instance.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.SaveException(System.Exception)">
+            <summary>
+            Virtual method to handle exceptions on our context.
+            <para>Examples:</para>
+            <para>Logger.Log(ex);</para>
+            </summary>
+            <param name="ex">Exception class.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+            Abstract method to configure the database connection.
+            </summary>
+            <param name="optionsBuilder">Model building options.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Abstract method to map our entities using reflection.
+            </summary>
+            <param name="modelBuilder">ModelBuilder instance.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.SetTrackingBehavior(Microsoft.EntityFrameworkCore.QueryTrackingBehavior)">
+            <summary>
+            Defines the default tracking behavior of our context.
+            </summary>
+            <param name="trackingBehavior">Enum of type QueryTrackingBehavior.</param>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions">
+            <summary>
+            Extension class to work with geometries and geoJSON.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.WriteGeoJson(GeoAPI.Geometries.IGeometry)">
+            <summary>
+            Converts a geometry to GeoJSON.
+            </summary>
+            <param name="geometry">IGeometry object.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.ReadGeoJson(System.String)">
+            <summary>
+            Converts a GeoJSON into an object of IGeometry type.
+            </summary>
+            <param name="geoJson">GeoJSON string.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Extensions.IQueryableExtensions">
+            <summary>
+            Extension methods for IQueryable objects (expressions).
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IQueryableExtensions.WhereNullSafe``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Allows to apply a null predicate in a Where condition without throwing an exception.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source">IQueryable list of entities.</param>
+            <param name="predicate">Predicate (allows null).</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions">
+            <summary>
+            Extension methods for TEntity objects, which must inherit the interface IAutoMappleable.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.Detach``1(``0,Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+            Detaches an entity from a DbContext, disabling lazy loading.
+            </summary>
+            <typeparam name="TEntity">Entity type.</typeparam>
+            <param name="entity">Entity instance.</param>
+            <param name="context">DbContext that controls the entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.AutoMapear``2(``1,System.Linq.Expressions.Expression{System.Func{``1,``0}})">
+            <summary>
+            Maps the properties of a class using AutoMapper.
+            </summary>
+            <typeparam name="TDestination">Type of the destination class.</typeparam>
+            <typeparam name="TSource">Type of the source class.</typeparam>
+            <param name="source">Source object with information..</param>
+            <param name="predicate">Predicate with the construction of the destination class.</param>
+            <returns>Object of the destination type.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.AutoMapear``2(``0)">
+            <summary>
+             Maps the properties of a class using AutoMapper.
+            </summary>
+            <typeparam name="TDestination">Type of the destination class.</typeparam>
+            <typeparam name="TSource">Type of the source class.</typeparam>
+            <param name="source">Source object with information.</param>
+            <returns>Object of the destination type.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.AutoMapearLista``2(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Maps an ienumerable object using AutoMapper.
+            </summary>
+            <typeparam name="TDestination">Type of the destination class.</typeparam>
+            <typeparam name="TSource">Type of the source class.</typeparam>
+            <param name="source">Source object with information..</param>
+            <returns>IEnumerable list of objects of the destination type.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.AutoMapearLista``2(System.Collections.Generic.IList{``0})">
+            <summary>
+            Maps a list of objects using AutoMapper.
+            </summary>
+            <typeparam name="TDestination">Type of the destination class.</typeparam>
+            <typeparam name="TSource">Type of the source class.</typeparam>
+            <param name="source">Source object with information..</param>
+            <returns>IList of objects of the destination type.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.MapearPredicado``2(System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Maps an expression predicate from the source class to the destination class.
+            </summary>
+            <typeparam name="TDestination">Type of the destination class.</typeparam>
+            <typeparam name="TSource">Type of the source class.</typeparam>
+            <param name="predicate">Expression Predicate with the source object.</param>
+            <returns>Returns an expression predicate with the destination object.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.TEntityExtensions.Implements``2(``0)">
+            <summary>
+            Checks if an entity implements a specific interface.
+            </summary>
+            <typeparam name="TEntity">Type of the source entity.</typeparam>
+            <typeparam name="TInterface">Type of the interface to be implemented.</typeparam>
+            <param name="entity">Source entity.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Interfaces.IAutoMappleable">
+            <summary>
+            Interface that is used to identity that a class is using automapper.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1">
+            <summary>
+            Interface to implement a generic repository class.
+            </summary>
+            <typeparam name="TEntity"></typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Insert(`0)">
+            <summary>
+            Insert a new entity to our repository.
+            <para>Examples:</para>
+            <para>_repository.Insert(newEntity);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Insert(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Method to insert a list of entities to our repository.
+            <para>Examples:</para>
+            <para>_repository.Insert(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Update(`0)">
+            <summary>
+            Method to update a single entity.
+            <para>Examples:</para>
+            <para>_repository.Update(entity);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Update(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Method to update our repository using a list of entities.
+            <para>Examples:</para>
+            <para>_repository.Update(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Update(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Method to update specific properties of an entity.
+            <para>Examples:</para>
+            <para>_repository.Update(user, p => p.FirstName, p => p.LastName);</para>
+            <para>_repository.Update(user, p => p.Password);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+            <param name="propriedades">Array of expressions with the properties that will be changed.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Delete(`0)">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(entity);</para>
+            </summary>
+            <param name="entity">Entity instance to be deleted to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Delete(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be deleted to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(p=> p.UserId == userId);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectByKey(System.Object[])">
+            <summary>
+            Select an entity using it's primary keys as search criteria.
+            <para>Examples:</para>
+            <para>_repository.SelectByKey(userId);</para>
+            <para>_repository.SelectByKey(companyId, userId);</para>
+            </summary>
+            <param name="primaryKeys">Primary key properties of our entity.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectAll">
+            <summary>
+            Select all entities from our repository
+            <para>Examples:</para>
+            <para>_repository.SelectAll();</para>
+            </summary>
+            <returns>Returns all entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectAllByPage(System.Int32,System.Int32)">
+            <summary>
+            Select entities using pagination (take N).
+            <para>Examples:</para>
+            <para>_repository.SelectAllByPage(1, 20);</para>
+            <para>_repository.SelectAllByPage(pageNumber, quantityPerPage);</para>
+            </summary>
+            <param name="pageNumber">Page number.</param>
+            <param name="quantity">Number of entities to select per page.</param>
+            <returns>Returns entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Select(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select an entity from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.Select(p=> p.UserId == 1);</para>
+            <para>_repository.Select(p=> p.UserName.Contains("John") == true);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Select``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Select specific properties of an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Select(p=> p.UserId == userId, p=> p.LastName);</para>
+            </summary>
+            <typeparam name="TResult">Entity returned from our search.</typeparam>
+            <param name="predicate">Filter applied to our search.</param>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select a list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(p => p.LastName.Contains("Doe"));</para>
+            <para>_repository.SelectList(null);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectList``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Select specific properties in list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(p => p.UserId, p => p.LastName.Contains("Doe"));</para>
+            <para>_repository.SelectList(p => p.UserId, p => p.IsAdmin == true);</para>
+            </summary>
+            <typeparam name="TResult">Entity returned from our search.</typeparam>
+            <param name="properties">Fields that will be selected and populated.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.SelectList``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select specific properties in list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(0, 10, p => p.GrupoId, p => p.PreferenciaId == preferencia.PreferenciaId);</para>
+            <para>_repository.SelectList(1, 20, p => p.UsuarioId, p => p.GrupoId == grupoId &amp;&amp; p.Preferencial == true);</para>
+            <para>_repository.SelectList(0, 10, p=> new Usuario(p.UsuarioId, p.UsuarioNome), p => p.Inativo == false);</para>
+            <para>_repository.SelectList(0, 100, p=> new Pais(p.PaisId, p.PaisNome));</para>
+            </summary>
+            <typeparam name="TResultado"></typeparam>
+            <param name="pageNumber">Page number.</param>
+            <param name="quantity">Number of entities to select per page.</param>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Method to verify if there are any entries in our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.Exists(p => p.UserId == user.Id)</para>
+            <para>_repository.Exists(p => p.UserId == id &amp;&amp; p.IsAdmin == false);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns if any entity was found using the search criteria.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Max(System.Linq.Expressions.Expression{System.Func{`0,System.Int32}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the max value from our repository using a filter.
+            </summary>
+            <param name="predicate">Filter applied to our search</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Max(System.Linq.Expressions.Expression{System.Func{`0,System.Int64}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the max value from our repository using a filter.
+            </summary>
+            <param name="predicate">Filter applied to our search</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericRepository`1.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the number of entities in our repository.
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork">
+            <summary>
+            Interface to implement a generic UnitOfWork class.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork.BeginTransaction">
+            <summary>
+            Start a new transaction.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork.Commit">
+            <summary>
+            Save changes to our database.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork.CommitAsync">
+            <summary>
+            Save changes to our database.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork.IsSucess">
+            <summary>
+            Return whether the Commit statement was successful.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Interfaces.IGenericUnitOfWork.GetOperationMessage">
+            <summary>
+            Returns the operation message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.Repository.GenericRepository`2">
+            <summary>
+            Generic repository class with standard CRUD methods.
+            </summary>
+            <typeparam name="TEntity">Database entity.</typeparam>
+            <typeparam name="TContext">Database context. Class must inherit GenericContext.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.#ctor(Sena.Mvc.Framework.Data.Context.GenericContext{`1})">
+            <summary>
+            Generic construtor based on a specific DbContext.
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Insert(`0)">
+            <summary>
+            Insert a new entity to our repository.
+            <para>Examples:</para>
+            <para>_repository.Insert(newEntity);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Insert(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Method to insert a list of entities to our repository.
+            <para>Examples:</para>
+            <para>_repository.Insert(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Update(`0)">
+            <summary>
+            Method to update a single entity.
+            <para>Examples:</para>
+            <para>_repository.Update(entity);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Update(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Method to update our repository using a list of entities.
+            <para>Examples:</para>
+            <para>_repository.Update(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be saved to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Update(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Method to update specific properties of an entity.
+            <para>Examples:</para>
+            <para>_repository.Update(user, p => p.FirstName, p => p.LastName);</para>
+            <para>_repository.Update(user, p => p.Password);</para>
+            </summary>
+            <param name="entity">Entity instance to be saved to our repository.</param>
+            <param name="propriedades">Array of expressions with the properties that will be changed.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Delete(`0)">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(entity);</para>
+            </summary>
+            <param name="entity">Entity instance to be deleted to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Delete(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(entityList);</para>
+            </summary>
+            <param name="entities">List of entities to be deleted to our repository.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Delete(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Delete an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Delete(p=> p.UserId == userId);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectByKey(System.Object[])">
+            <summary>
+            Select an entity using it's primary keys as search criteria.
+            <para>Examples:</para>
+            <para>_repository.SelectByKey(userId);</para>
+            <para>_repository.SelectByKey(companyId, userId);</para>
+            </summary>
+            <param name="primaryKeys">Primary key properties of our entity.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectAll">
+            <summary>
+            Select all entities from our repository
+            <para>Examples:</para>
+            <para>_repository.SelectAll();</para>
+            </summary>
+            <returns>Returns all entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectAllByPage(System.Int32,System.Int32)">
+            <summary>
+            Select entities using pagination (take N).
+            <para>Examples:</para>
+            <para>_repository.SelectAllByPage(1, 20);</para>
+            <para>_repository.SelectAllByPage(pageNumber, quantityPerPage);</para>
+            </summary>
+            <param name="pageNumber">Page number.</param>
+            <param name="quantity">Number of entities to select per page.</param>
+            <returns>Returns entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectAllByPage``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Select entities using pagination (take N) and a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectAllByPage(1, 20, p => p.UserId);</para>
+            <para>_repository.SelectAllByPage(pageNumber, quantityPerPage, p => p.UserId);</para>
+            </summary>
+            <param name="pageNumber">Page number.</param>
+            <param name="quantity">Number of entities to select per page.</param>
+            <param name="properties">Fields that will be selected and populated.</param>
+            <returns>Returns entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Select(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select an entity from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.Select(p=> p.UserId == 1);</para>
+            <para>_repository.Select(p=> p.UserName.Contains("John") == true);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Select``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Select specific properties of an entity from our repository.
+            <para>Examples:</para>
+            <para>_repository.Select(p=> p.UserId == userId, p=> p.LastName);</para>
+            </summary>
+            <typeparam name="TResult">Entity returned from our search.</typeparam>
+            <param name="predicate">Filter applied to our search.</param>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <returns>Returns an entity from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectList(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select a list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(p => p.LastName.Contains("Doe"));</para>
+            <para>_repository.SelectList(null);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectList``1(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
+            <summary>
+            Select specific properties in list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(p => p.LastName.Contains("Doe"), p => p.UserId);</para>
+            <para>_repository.SelectList(p => p.IsAdmin == true, p => p.UserId);</para>
+            </summary>
+            <typeparam name="TResult">Entity returned from our search.</typeparam>
+            <param name="properties">Fields that will be selected and populated.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectList``1(System.Int32,System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Select specific properties in list of entities from our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.SelectList(0, 10, p => p.GrupoId, p => p.PreferenciaId == preferencia.PreferenciaId);</para>
+            <para>_repository.SelectList(1, 20, p => p.UsuarioId, p => p.GrupoId == grupoId &amp;&amp; p.Preferencial == true);</para>
+            <para>_repository.SelectList(0, 10, p=> new Usuario(p.UsuarioId, p.UsuarioNome), p => p.Inativo == false);</para>
+            <para>_repository.SelectList(0, 100, p=> new Pais(p.PaisId, p.PaisNome));</para>
+            </summary>
+            <typeparam name="TResultado"></typeparam>
+            <param name="pageNumber">Page number.</param>
+            <param name="quantity">Number of entities to select per page.</param>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns a list of entities from our repository</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Exists(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Method to verify if there are any entries in our repository using a filter.
+            <para>Examples:</para>
+            <para>_repository.Exists(p => p.UserId == user.Id)</para>
+            <para>_repository.Exists(p => p.UserId == id &amp;&amp; p.IsAdmin == false);</para>
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns>Returns if any entity was found using the search criteria.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Max(System.Linq.Expressions.Expression{System.Func{`0,System.Int32}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the max value from our repository using a filter.
+            </summary>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Max(System.Linq.Expressions.Expression{System.Func{`0,System.Int64}},System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the max value from our repository using a filter.
+            </summary>
+            <param name="properties">Fields that will be selected and populated in our result.</param>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Count(System.Linq.Expressions.Expression{System.Func{`0,System.Boolean}})">
+            <summary>
+            Returns the number of entities in our repository.
+            </summary>
+            <param name="predicate">Filter applied to our search.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.SelectGeoJson(System.String)">
+            <summary>
+            Method to select geometry data as GeoJSON.
+            </summary>
+            <param name="geometry">Stringified geometry to convert into convert.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.Repository.GenericRepository`2.Dispose">
+            <summary>
+            Dispose method.
+            </summary>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1">
+            <summary>
+            Generic UnitOfWork class that implements basic operations (ie: commit or rollback)
+            </summary>
+            <typeparam name="TContext"></typeparam>
+        </member>
+        <member name="F:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1._dbContext">
+            <summary>
+            Object containing the acessible dbContext.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.OperationSuccesful">
+            <summary>
+            Returns if our transaction was succesful.
+            </summary>
+        </member>
+        <member name="P:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.OperationMessage">
+            <summary>
+            Message returned from our transaction.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.#ctor(Sena.Mvc.Framework.Data.Context.GenericContext{`0})">
+            <summary>
+            Default constructor using a generic context.
+            </summary>
+            <param name="dbContext"></param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.BeginTransaction">
+            <summary>
+            Start a new transaction.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.Commit">
+            <summary>
+            Save changes to our database.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.CommitAsync">
+            <summary>
+            Salvar informações na base de dados de forma assíncrona.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.DetachAll">
+            <summary>
+            Detaches all entities from the context that were added or modified.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.IsSucess">
+            <summary>
+            Return whether the Commit statement was successful.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.GetOperationMessage">
+            <summary>
+            Returns the operation message.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.Dispose(System.Boolean)">
+            <summary>
+            Dispose method.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Data.UnitOfWork.GenericUnitOfWork`1.Dispose">
+            <summary>
+            Dispose method.
+            </summary>
+        </member>
+    </members>
+</doc>

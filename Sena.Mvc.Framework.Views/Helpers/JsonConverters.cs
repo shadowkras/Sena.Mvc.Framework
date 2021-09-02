@@ -5,6 +5,9 @@ using Sena.Mvc.Framework.Core.Extensions;
 
 namespace Sena.Mvc.Framework.Views.Helpers
 {
+    /// <summary>
+    /// Json converter class to return Json objects.
+    /// </summary>
     public class JsonConverters
     {
         public static JsonSerializerSettings DefaultSettings = new JsonSerializerSettings

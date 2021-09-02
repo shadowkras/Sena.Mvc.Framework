@@ -1,0 +1,623 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sena.Mvc.Framework.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.ByteExensions">
+            <summary>
+            Extension methods for byte[] objects.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ByteExensions.AsString(System.Byte[])">
+            <summary>
+            Converts a byte array into an UTF8 string.
+            </summary>
+            <param name="value">Byte array with data.</param>
+            <returns>
+            UTF8 string with converted data.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ByteExensions.AsStringBase64(System.Byte[])">
+            <summary>
+            Converts a byte array into a base 64 string.
+            </summary>
+            <param name="value">Byte array with data.</param>
+            <returns>
+            Base 64 string with converted data.
+            </returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.CacheExtensions">
+            <summary>
+            Extension methods to work with Microsoft.Extensions.Caching.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.CacheExtensions.ResponseCacheString``1(Microsoft.Extensions.Caching.Memory.IMemoryCache,System.String,System.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.String}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Saves a memory cache response and returns the result as a string.
+            </summary>
+            <typeparam name="TEntity">Type of source entity.</typeparam>
+            <param name="cache">IMemoryCache instance.</param>
+            <param name="key">Cache key (needs to be unique).</param>
+            <param name="method">Method that will be executed to get the data we want..</param>
+            <param name="condition">Condition expression for the method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.CacheExtensions.ResponseCacheObject``1(Microsoft.Extensions.Caching.Memory.IMemoryCache,System.String,System.Func{System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Threading.Tasks.Task{System.Object}},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}})">
+            <summary>
+            Saves a memory cache response and returns the result as an object.
+            </summary>
+            <typeparam name="TEntity">Type of source entity.</typeparam>
+            <param name="cache">IMemoryCache instance.</param>
+            <param name="key">Cache key (needs to be unique).</param>
+            <param name="method">Method that will be executed to get the data we want..</param>
+            <param name="condition">Condition expression for the method.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.CacheExtensions.GetCache(Microsoft.Extensions.Caching.Memory.IMemoryCache,System.String)">
+            <summary>
+            Obtains an object from the application memory cache.
+            </summary>
+            <param name="cache">IMemoryCache instance.</param>
+            <param name="key">Cache key (needs to be unique).</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.CacheExtensions.SaveCache(Microsoft.Extensions.Caching.Memory.IMemoryCache,System.String,System.Object,System.Int32)">
+            <summary>
+            Saves an object in the application memory cache.
+            </summary>
+            <param name="cache">IMemoryCache instance.</param>
+            <param name="key">Cache key (needs to be unique).</param>
+            <param name="dataObject">Object with data to be saved.</param>
+            <param name="duration">Cache duration, in seconds.</param>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions">
+            <summary>
+            Extension methods for ICollection, IDictionary and IList objects.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions.IsEmpty(System.Collections.IDictionary)">
+            <summary>
+            Returns if our dictionary is empty.
+            </summary>
+            <param name="dictionary">Object of IDictionary type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions.IsEmpty(System.Collections.IList)">
+            <summary>
+            Returns if our list is empty.
+            </summary>
+            <param name="list">Object of IList type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions.IsEmpty(System.Collections.ICollection)">
+            <summary>
+            Returns if our collection is empty.
+            </summary>
+            <param name="collection">Object of ICollection type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions.IsEmpty``1(System.Collections.Generic.ICollection{``0})">
+            <summary>
+            Returns if our collection is empty.
+            <para>Example: if(MyCollection.IsEmpty() == true)</para>
+            </summary>
+            <param name="collection">Object of ICollection type.</param>
+            <returns></returns>        
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.EnumExtensions">
+            <summary>
+            Extension methods for Enums.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.EnumExtensions.EnumDescription(System.Enum)">
+            <summary>
+            Returns the Display (Name) for an enumerator item.
+            </summary>
+            <param name="enumerador">Enumerator item.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.EnumExtensions.GetValues``1">
+            <summary>
+            Returns the values of an enum as a list.
+            </summary>
+            <typeparam name="T">Type of the Enum.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.EnumExtensions.GetNamesArray``1">
+            <summary>
+            Returns a string array with the names of the items of an enum.
+            </summary>
+            <typeparam name="T">Type of the Enum.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.EnumInternals`1">
+            <summary>
+            Internal class to work with enumerables.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions">
+            <summary>
+            Extension methods for Exceptions.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetMessages(System.Exception)">
+            <summary>
+            Looks up for all exception messages, including InnerExceptions.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns>Returns a new line separated string with all exception messages found.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetMessageList(System.Exception)">
+            <summary>
+            Looks up for all exception messages, including InnerExceptions.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns>A list of exception messages.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetHashId(System.Exception)">
+            <summary>
+            Returns a new hash as the exception unique identifier.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetStackPathToString(System.Exception)">
+            <summary>
+            Returns the file path to the exception origin.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetStackPath(System.Exception)">
+            <summary>
+            Returns a list of file names leading to the exception origin.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.GetStackTrace(System.Exception)">
+            <summary>
+            Returns the full StackTrace as a string.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ExceptionExtensions.InnerExceptionMessage(System.Exception)">
+            <summary>
+            Gets the Inner Exception messages.
+            </summary>
+            <param name="source">Exception class.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.ImageExtension">
+            <summary>
+            Extension methods for images.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeToXKbytes(System.Byte[],System.Int32)">
+            <summary>
+            Resizes an image to a lower size in kylobytes.
+            </summary>
+            <param name="byteImageIn">Byte array with our image.</param>
+            <param name="byteSize">New size in bytes.</param>
+            <returns>Returns the resized byte array.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeTo50Kbytes(System.Byte[])">
+            <summary>
+            Resizes an image to about 50 kylobytes.
+            </summary>
+            <param name="byteImageIn">Byte array with our image.</param>
+            <returns>Returns the resized byte array.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeTo10Kbytes(System.Byte[])">
+            <summary>
+            Resizes an image to about 10 kylobytes.
+            </summary>
+            <param name="byteImageIn">Byte array with our image.</param>
+            <returns>Returns the resized byte array.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeTo5Kbytes(System.Byte[])">
+            <summary>
+            Resizes an image to about 5 kylobytes.
+            </summary>
+            <param name="byteImageIn">Byte array with our image.</param>
+            <returns>Retorna uma nova array redimensionada.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeTo1Kbytes(System.Byte[])">
+            <summary>
+            Resizes an image to about 1 kylobytes.
+            </summary>
+            <param name="byteImageIn">Byte array with our image.</param>
+            <returns>Returns the resized byte array.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.ImageExtension.ResizeToNKbytes(System.Byte[],System.Int32)">
+            <summary>
+            Redimensiona uma imagem para até N kb.
+            </summary>
+            <param name="byteImageIn">Array de bytes da imagem.</param>
+            <param name="n">New size in Kbytes.</param>
+            <returns>Returns the resized byte array.</returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.StreamExtensions">
+            <summary>
+            Extension methods for memory streams.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StreamExtensions.SerializeToStream(System.Object)">
+            <summary>
+            Serializa um objeto como MemoryStream (classe precisa do atributo [Serializable]).
+            </summary>
+            <param name="objectType">Objeto a ser serializado.</param>
+            <returns>O objeto serializado como MemoryStream.</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StreamExtensions.DeserializeFromStream(System.IO.Stream)">
+            <summary>
+            Deserializa uma stream como objeto.
+            </summary>
+            <param name="stream">A stream a ser deserializada.</param>
+            <returns>O objeto deserializado</returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StreamExtensions.ReadToEnd(System.IO.Stream)">
+            <summary>
+            Converte uma stream em uma array de bytes.
+            </summary>
+            <param name="stream">Stream a ser convertida.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Sena.Mvc.Framework.Core.Extensions.StringExtensions">
+            <summary>
+            Extension methods for string objects.
+            </summary>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.RemoveSpace(System.String)">
+            <summary>
+            Remove empty spaces in a string
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.ReplaceAll(System.String,System.String)">
+            <summary>
+            Replaces all instances of a specific character in a string for empty space.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="caractere">Character to be replaced.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.ReplaceAll(System.String,System.String,System.Collections.Generic.List{System.Char})">
+            <summary>
+            Replaces all instances of a specific character in a string for empty space.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="caractere">Character to be replaced.</param>
+            <param name="filtro">List of characters to be ignored.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsStringBase64(System.String)">
+            <summary>
+            Converts a string into a base 64 byte array.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            A base 64 byte array with the converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsByteArray(System.String)">
+            <summary>
+            Converts a string into an UTF8 byte array.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            A byte array with the converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsLong(System.String)">
+            <summary>
+            Converts a string to long.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsInt(System.String)">
+            <summary>
+            Converts a string to integer.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsShort(System.String,System.Int16)">
+            <summary>
+            Converts a string to an integer and specifies a default value.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsShort(System.String)">
+            <summary>
+            Converts a string to a <see cref="T:System.Int16" /> number.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsLong(System.String,System.Int64)">
+            <summary>
+            Converts a string to a a long and specifies a default value.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsInt(System.String,System.Int32)">
+            <summary>
+            Converts a string to an integer and specifies a default value.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsDecimal(System.String)">
+            <summary>
+            Converts a string to a <see cref="T:System.Decimal" /> number.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsDecimal(System.String,System.Decimal)">
+            <summary>
+            Converts a string to a <see cref="T:System.Decimal" /> number and specifies a default value.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null or invalid.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsFloat(System.String)">
+            <summary>
+            Converts a string to a <see cref="T:System.Single" /> number.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsFloat(System.String,System.Single)">
+            <summary>
+            Converts a string to a <see cref="T:System.Single" /> number and specifies a default value.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsDateTime(System.String)">
+            <summary>
+            Converts a string to a <see cref="T:System.DateTime" /> value.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsDateTime(System.String,System.DateTime)">
+            <summary>
+            Converts a string to a <see cref="T:System.DateTime" /> value and specifies a default value.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <param name="defaultValue">
+            The value to return if <paramref name="value" /> is null or is an invalid value. The default
+            is the minimum time value on the system.
+            </param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.As``1(System.String)">
+            <summary>
+            Converts a string to a strongly typed value of the specified data type.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <typeparam name="TValue">The data type to convert to.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsBool(System.String)">
+            <summary>
+            Converts a string to a Boolean (true/false) value.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns>
+            The converted value.
+            </returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.AsBool(System.String,System.Boolean)">
+            <summary>
+            Converts a string to a Boolean (true/false) value and specifies a default value.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null or is an invalid value.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.As``1(System.String,``0)">
+            <summary>
+            Converts a string to the specified data type and specifies a default value.
+            </summary>
+            <returns>
+            The converted value.
+            </returns>
+            <param name="value">The value to convert.</param>
+            <param name="defaultValue">The value to return if <paramref name="value" /> is null.</param>
+            <typeparam name="TValue">The data type to convert to.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsBool(System.String)">
+            <summary>
+            Checks whether a string can be converted to the Boolean (true/false) type.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsLong(System.String)">
+            <summary>
+            Checks whether a string can be converted to a long.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsInt(System.String)">
+            <summary>
+            Checks whether a string can be converted to an integer.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsDecimal(System.String)">
+            <summary>
+            Checks whether a string can be converted to the <see cref="T:System.Decimal" /> type.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsFloat(System.String)">
+            <summary>
+            Checks whether a string can be converted to the <see cref="T:System.Single" /> type.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsDateTime(System.String)">
+            <summary>
+            Checks whether a string can be converted to the <see cref="T:System.DateTime" /> type.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The string value to test.</param>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Is``1(System.String)">
+            <summary>
+            Checks whether a string can be converted to the specified data type.
+            </summary>
+            <returns>
+            true if <paramref name="value" /> can be converted to the specified type; otherwise, false.
+            </returns>
+            <param name="value">The value to test.</param>
+            <typeparam name="TValue">The data type to convert to.</typeparam>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsNumericType(System.Type)">
+            <summary>
+            Checks wether the object's type is a number (short, int, long, decimal, etc).
+            </summary>
+            <param name="propertyType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsNumberValue(System.Object)">
+            <summary>
+            Checks wether the object's value is a number (short, int, long, decimal, etc).
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.CastTo``1(System.Object,``0)">
+            <summary>
+            Convert an object into another type.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="targetType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Left(System.String,System.Int32)">
+            <summary>
+            Returns the first n characters to the left side of a string.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="length">The number of characters to return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Left(System.String,System.Char)">
+            <summary>
+            Returns all the characters to the left side of a string, starting on a specific character.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="startingPoint">Character that is our starting point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Left(System.String,System.String)">
+            <summary>
+            Returns all the characters to the left side of a string, starting on a specific string.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="startingPoint">String that is our starting point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Right(System.String,System.Int32)">
+            <summary>
+            Returns the first n characters to the right side of a string.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="length">The number of characters to return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Right(System.String,System.Char)">
+            <summary>
+            Returns all the characters to the right side of a string, starting on a specific character.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="startingPoint">Character that is our starting point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Right(System.String,System.String)">
+            <summary>
+            Returns all the characters to the right side of a string, starting on a specific string.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="startingPoint">String that is our starting point.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.Right(System.String,System.Char,System.Int32)">
+            <summary>
+            Returns the first n characters to the right side of a string, starting on a specific character.
+            </summary>
+            <param name="value">String of characters.</param>
+            <param name="startingPoint">Char that is our starting point.</param>
+            <param name="length">The number of characters to return.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.StringExtensions.IsEmpty(System.String)">
+            <summary>
+            Returns if our string is null or empty.
+            </summary>
+            <param name="value">String of characters.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

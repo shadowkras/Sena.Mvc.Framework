@@ -4,6 +4,9 @@ using System.Linq.Expressions;
 
 namespace Sena.Mvc.Framework.Data.Extensions
 {
+    /// <summary>
+    /// Extension methods for IQueryable objects (expressions).
+    /// </summary>
     public static class IQueryableExtensions
     {
         /// <summary>

@@ -4,25 +4,28 @@ using System.Reflection;
 
 namespace Sena.Mvc.Framework.Views.Extensions
 {
+    /// <summary>
+    /// Extension methods for view models.
+    /// </summary>
     public static class ViewModelExtensions
     {
         /// <summary>
-        /// Retorna o valor da propriedade Name do atributo Display de uma entidade.
+        /// Returns the value of the Name property of the Display attribute of an object.
         /// </summary>
-        /// <param name="instancia">Objeto com a propriedade.</param>
-        /// <param name="propriedade">Nome da propriedade a ser buscada.</param>
+        /// <param name="entity">Object with our data.</param>
+        /// <param name="propertyName">Name of the property to be found.</param>
         /// <returns></returns>
-        public static string DisplayName<TEntity>(this TEntity instancia, string propriedade) where TEntity: class
+        public static string DisplayName<TEntity>(this TEntity entity, string propertyName) where TEntity: class
         {
-            if (string.IsNullOrWhiteSpace(propriedade.Trim()) == true)
+            if (string.IsNullOrWhiteSpace(propertyName.Trim()) == true)
             {
-                throw new Exception($"Nenhuma propriedade informada para o método ExtensaoColunaGrade.DisplayName().");
+                throw new Exception($"No property name informed for ViewModelExtensions.DisplayName().");
             }
 
-            MemberInfo property = (instancia.GetType()).GetProperty(propriedade.Trim());
+            MemberInfo property = (entity.GetType()).GetProperty(propertyName.Trim());
 
             if (property == null)
-                throw new Exception($"Nenhuma propriedade com o nome {propriedade} encontrada na classe {instancia.ToString()}.");
+                throw new Exception($"No property with the Name {propertyName} found on class {entity.ToString()}.");
 
             if (property.GetCustomAttribute(typeof(DisplayAttribute)) is DisplayAttribute dd)
             {

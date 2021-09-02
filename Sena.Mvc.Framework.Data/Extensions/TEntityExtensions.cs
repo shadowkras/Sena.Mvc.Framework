@@ -8,6 +8,9 @@ using Sena.Mvc.Framework.Data.Interfaces;
 
 namespace Sena.Mvc.Framework.Data.Extensions
 {
+    /// <summary>
+    /// Extension methods for TEntity objects, which must inherit the interface IAutoMappleable.
+    /// </summary>
     public static class TEntityExtensions
     {
         #region Dettach do entity framework
@@ -42,31 +45,31 @@ namespace Sena.Mvc.Framework.Data.Extensions
         #region Auto-mapear
 
         /// <summary>
-        /// Realiza o mapeamento as propriedades da classe de origem utilizando o AutoMapper.
+        /// Maps the properties of a class using AutoMapper.
         /// </summary>
-        /// <typeparam name="TDestination">Tipo da entidade de destino.</typeparam>
-        /// <typeparam name="TSource">Tipo da entidade de origem.</typeparam>
-        /// <param name="source">Objeto de Origem com as informações das propriedades.</param>
-        /// <param name="predicado">Predicado com o construtor do objeto de destino.</param>
-        /// <returns>Objeto do tipo TEntity.</returns>
-        public static TDestination AutoMapear<TDestination, TSource>(this TSource source, Expression<Func<TSource, TDestination>> predicado) where TSource : class, IAutoMappleable
+        /// <typeparam name="TDestination">Type of the destination class.</typeparam>
+        /// <typeparam name="TSource">Type of the source class.</typeparam>
+        /// <param name="source">Source object with information..</param>
+        /// <param name="predicate">Predicate with the construction of the destination class.</param>
+        /// <returns>Object of the destination type.</returns>
+        public static TDestination AutoMapear<TDestination, TSource>(this TSource source, Expression<Func<TSource, TDestination>> predicate) where TSource : class, IAutoMappleable
                                                                                                                                              where TDestination : class, IAutoMappleable
         {
             var configuracao = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<TSource, TDestination>().ConstructUsing(predicado);
+                cfg.CreateMap<TSource, TDestination>().ConstructUsing(predicate);
             });
 
             return configuracao.CreateMapper().Map<TSource, TDestination>(source);
         }
 
         /// <summary>
-        /// Realiza o mapeamento as propriedades da classe de origem utilizando o AutoMapper.
+        ///  Maps the properties of a class using AutoMapper.
         /// </summary>
-        /// <typeparam name="TDestination">Tipo da entidade de destino.</typeparam>
-        /// <typeparam name="TSource">Tipo da entidade de origem.</typeparam>
-        /// <param name="source">Objeto de origem com as informações das propriedades.</param>
-        /// <returns>Objeto do tipo TEntity.</returns>
+        /// <typeparam name="TDestination">Type of the destination class.</typeparam>
+        /// <typeparam name="TSource">Type of the source class.</typeparam>
+        /// <param name="source">Source object with information.</param>
+        /// <returns>Object of the destination type.</returns>
         public static TDestination AutoMapear<TSource, TDestination>(this TSource source) where TSource : class, IAutoMappleable
                                                                                           where TDestination: class, IAutoMappleable
         {
@@ -79,12 +82,12 @@ namespace Sena.Mvc.Framework.Data.Extensions
         }
 
         /// <summary>
-        /// Realiza o mapeamento de uma lista de objetos utilizando o AutoMapper.
+        /// Maps an ienumerable object using AutoMapper.
         /// </summary>
-        /// <typeparam name="TDestination">Tipo da entidade de destino.</typeparam>
-        /// <typeparam name="TSource">Tipo da entidade de origem.</typeparam>
-        /// <param name="source">Objeto de origem com as informações das propriedades.</param>
-        /// <returns>Objeto do tipo TEntity.</returns>
+        /// <typeparam name="TDestination">Type of the destination class.</typeparam>
+        /// <typeparam name="TSource">Type of the source class.</typeparam>
+        /// <param name="source">Source object with information..</param>
+        /// <returns>IEnumerable list of objects of the destination type.</returns>
         public static IEnumerable<TDestination> AutoMapearLista<TSource, TDestination>(this IEnumerable<TSource> source) where TSource : class, IAutoMappleable
         {
             var configuracao = new MapperConfiguration(cfg =>
@@ -96,12 +99,12 @@ namespace Sena.Mvc.Framework.Data.Extensions
         }
 
         /// <summary>
-        /// Realiza o mapeamento de uma lista de objetos utilizando o AutoMapper.
+        /// Maps a list of objects using AutoMapper.
         /// </summary>
-        /// <typeparam name="TDestination">Tipo da entidade de destino.</typeparam>
-        /// <typeparam name="TSource">Tipo da entidade de origem.</typeparam>
-        /// <param name="source">Objeto de origem com as informações das propriedades.</param>
-        /// <returns>Objeto do tipo TEntity.</returns>
+        /// <typeparam name="TDestination">Type of the destination class.</typeparam>
+        /// <typeparam name="TSource">Type of the source class.</typeparam>
+        /// <param name="source">Source object with information..</param>
+        /// <returns>IList of objects of the destination type.</returns>
         public static IList<TDestination> AutoMapearLista<TSource, TDestination>(this IList<TSource> source) where TSource : class, IAutoMappleable
         {
             var configuracao = new MapperConfiguration(cfg =>
@@ -117,13 +120,13 @@ namespace Sena.Mvc.Framework.Data.Extensions
         #region Mapear Predicado
 
         /// <summary>
-        /// Realiza o mapeamento de um predicado da classe de origem para a classe de destino utilizando o AutoMapper.
+        /// Maps an expression predicate from the source class to the destination class.
         /// </summary>
-        /// <typeparam name="TDestination">Objeto de destino.</typeparam>
-        /// <typeparam name="TSource">Objeto de origem.</typeparam>
-        /// <param name="predicado">Predicado do objeto de origem.</param>
-        /// <returns>Retorna um predicado com o objeto de destino.</returns>
-        public static Expression<Func<TDestination, bool>> MapearPredicado<TSource, TDestination>(this Expression<Func<TSource, bool>> predicado) where TSource : class, IAutoMappleable
+        /// <typeparam name="TDestination">Type of the destination class.</typeparam>
+        /// <typeparam name="TSource">Type of the source class.</typeparam>
+        /// <param name="predicate">Expression Predicate with the source object.</param>
+        /// <returns>Returns an expression predicate with the destination object.</returns>
+        public static Expression<Func<TDestination, bool>> MapearPredicado<TSource, TDestination>(this Expression<Func<TSource, bool>> predicate) where TSource : class, IAutoMappleable
         {
             var configuracao = new MapperConfiguration(cfg =>
             {
@@ -131,7 +134,7 @@ namespace Sena.Mvc.Framework.Data.Extensions
                 cfg.CreateMap<TDestination, TSource>();
             });
 
-            return configuracao.CreateMapper().Map<Expression<Func<TSource, bool>>, Expression<Func<TDestination, bool>>>(predicado);
+            return configuracao.CreateMapper().Map<Expression<Func<TSource, bool>>, Expression<Func<TDestination, bool>>>(predicate);
         }
 
         #endregion
@@ -139,11 +142,11 @@ namespace Sena.Mvc.Framework.Data.Extensions
         #region Verificar implementação de interfaces
 
         /// <summary>
-        /// Verifica se a entidade implementa uma interface.
+        /// Checks if an entity implements a specific interface.
         /// </summary>
-        /// <typeparam name="TEntity">Tipo da entidade de origem.</typeparam>
-        /// <typeparam name="TInterface">Tipo da interface.</typeparam>
-        /// <param name="entity">Entidade de origem.</param>
+        /// <typeparam name="TEntity">Type of the source entity.</typeparam>
+        /// <typeparam name="TInterface">Type of the interface to be implemented.</typeparam>
+        /// <param name="entity">Source entity.</param>
         /// <returns></returns>
         public static bool Implements<TEntity, TInterface>(this TEntity entity)
         {

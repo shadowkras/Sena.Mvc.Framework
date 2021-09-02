@@ -8,14 +8,14 @@ using Sena.Mvc.Framework.Core.Extensions;
 namespace Sena.Mvc.Framework.Data.Extensions
 {
     /// <summary>
-    /// Classe de extenção para trabalhar com geometrias e geojson.
+    /// Extension class to work with geometries and geoJSON.
     /// </summary>
     public static class IGeometryExtensions
     {
         /// <summary>
-        /// Método para converter uma geometria em GeoJson.
+        /// Converts a geometry to GeoJSON.
         /// </summary>
-        /// <param name="geometry">Objeto do tipo IGeometry.</param>
+        /// <param name="geometry">IGeometry object.</param>
         /// <returns></returns>
         public static  string WriteGeoJson(this GeoAPI.Geometries.IGeometry geometry)
         {
@@ -43,9 +43,9 @@ namespace Sena.Mvc.Framework.Data.Extensions
         }
 
         /// <summary>
-        /// Método para converter um GeoJson em um objeto do tipo IGeometry.
+        /// Converts a GeoJSON into an object of IGeometry type.
         /// </summary>
-        /// <param name="geoJson">String com o GeoJson.</param>
+        /// <param name="geoJson">GeoJSON string.</param>
         /// <returns></returns>
         public static GeoAPI.Geometries.IGeometry ReadGeoJson(this string geoJson)
         {

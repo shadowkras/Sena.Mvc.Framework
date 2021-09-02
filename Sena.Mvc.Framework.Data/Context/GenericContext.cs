@@ -155,7 +155,7 @@ namespace Sena.Mvc.Framework.Data.Context
         #region SetTrackingMethod
 
         /// <summary>
-        /// Define the default tracking behavior of our context.
+        /// Defines the default tracking behavior of our context.
         /// </summary>
         /// <param name="trackingBehavior">Enum of type QueryTrackingBehavior.</param>
         public void SetTrackingBehavior(QueryTrackingBehavior trackingBehavior = QueryTrackingBehavior.NoTracking)

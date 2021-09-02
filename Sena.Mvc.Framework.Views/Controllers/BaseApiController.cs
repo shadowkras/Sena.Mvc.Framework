@@ -4,12 +4,15 @@ using Sena.Mvc.Framework.Core.Extensions;
 
 namespace Sena.Mvc.Framework.Views.Controllers
 {
+    /// <summary>
+    /// Controller class with commonly used properties and methods used by API controllers.
+    /// </summary>
     public class BaseApiController : Controller
     {
         /// <summary>
-        /// Retorna o nome da controller sem o texto "Controller".
+        /// Returns of the name of the controller without the "Controller" suffix.
         /// </summary>
-        protected   string ControllerName => this.GetType().Name.Replace("Controller", string.Empty);
+        protected string ControllerName => this.GetType().Name.Replace("Controller", string.Empty);
 
         #region Construtor
 
@@ -21,31 +24,31 @@ namespace Sena.Mvc.Framework.Views.Controllers
         #region Retorno padrão de API
 
         /// <summary>
-        /// Retorno em Json para métodos de API.
+        /// Returns our standard api object as json.
         /// </summary>
-        /// <param name="sucesso">Operação executada com sucesso ou não.</param>
-        /// <param name="mensagem">Mensagem de retorno para o usuário.</param>
-        /// <param name="dados">Objeto de retorno para o usuário.</param>
+        /// <param name="isSuccess">Says wether the request was successful.</param>
+        /// <param name="message">Message to return by our API.</param>
+        /// <param name="data">Data returned by our API.</param>
         /// <returns></returns>
-        public IActionResult RetornoApi(bool sucesso = false, string mensagem = "", object dados = null)
+        public IActionResult ReturnAsApiJson(bool isSuccess = false, string message = "", object data = null)
         {
             if (System.Diagnostics.Debugger.IsAttached == true)
             {
                 return new ViewModels.RetornoApiViewModel
                 {
-                    Sucesso = sucesso,
-                    Mensagem = mensagem, //TODO pegar os erros da Model
-                    Dados = dados,
-                }.RetornoJson();
+                    IsSucess = isSuccess,
+                    Message = message,
+                    Data = data,
+                }.ReturnAsJson();
             }
             else
             {
                 return new ViewModels.RetornoApiViewModel
                 {
-                    Sucesso = sucesso,
-                    Mensagem = mensagem,
-                    Dados = dados,
-                }.RetornoJson();
+                    IsSucess = isSuccess,
+                    Message = message,
+                    Data = data,
+                }.ReturnAsJson();
             }
         }
 
@@ -53,24 +56,30 @@ namespace Sena.Mvc.Framework.Views.Controllers
 
         #region Retorna Mensagem de Erro (API)
 
-        public IActionResult RetornaErrorApi(Exception ex, string mensagem = null)
+        /// <summary>
+        /// Return our standard api object with an error message in json format.
+        /// </summary>
+        /// <param name="ex">Exception with our error.</param>
+        /// <param name="message">Friendly message.</param>
+        /// <returns></returns>
+        public IActionResult ReturnAsErrorApiJson(Exception ex, string message = null)
         {
             if (System.Diagnostics.Debugger.IsAttached == true)
             {
                 return new ViewModels.RetornoApiViewModel
                 {
-                    Sucesso = false,
-                    Mensagem = mensagem ?? "Ocorreu um erro.",
-                    Dados = ex.GetMessageList(),
-                }.RetornoJson();
+                    IsSucess = false,
+                    Message = message ?? "There was an error.",
+                    Data = ex.GetMessageList(),
+                }.ReturnAsJson();
             }
             else
             {
                 return new ViewModels.RetornoApiViewModel
                 {
-                    Sucesso = false,
-                    Mensagem = mensagem ?? "Ocorreu um erro.",
-                }.RetornoJson();
+                    IsSucess = false,
+                    Message = message ?? "There was an error.",
+                }.ReturnAsJson();
             }
         }
 

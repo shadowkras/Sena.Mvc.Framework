@@ -3,15 +3,15 @@
 namespace Sena.Mvc.Framework.Views.ViewComponents
 {
     /// <summary>
-    /// Componente de selects usando Vue.
-    /// <para>Documentação: https://vue-select.org/api/props.html </para>
+    /// Select component using VueJS.
+    /// <para>Documentation: https://vue-select.org/api/props.html </para>
     /// </summary>
     [ViewComponent(Name = "VueSelect")]
     public class VueSelect : ViewComponent
     {
-        public IViewComponentResult Invoke(string propriedadeRetorno, string propriedadeId, string propriedadeDescricao, string valorInicial, string fetchUrl)
+        public IViewComponentResult Invoke(string returnProperty, string idProperty, string descriptionProperty, string initialValue, string fetchUrl)
         {
-            var viewModel = new VueSelectViewModel(propriedadeRetorno, propriedadeId, propriedadeDescricao, valorInicial ?? string.Empty, fetchUrl, string.Empty);
+            var viewModel = new VueSelectViewModel(returnProperty, idProperty, descriptionProperty, initialValue ?? string.Empty, fetchUrl, string.Empty);
             return View("VueSelect", viewModel);
         }
     }
@@ -21,14 +21,14 @@ namespace Sena.Mvc.Framework.Views.ViewComponents
         #region Propriedade
 
         public string Id { get; }
-        public string NomePropriedadeRetorno { get; }
-        public string NomePropriedadeIdentificador { get; }
-        public string NomePropriedadeDescricao { get; }
-        public string ValorInicial { get; }
+        public string ReturnPropertyName { get; }
+        public string IdentifierPropertyName { get; }
+        public string DescriptionPropertyName { get; }
+        public string InitialValue { get; }
         public string FetchUrl { get; }
 
         /// <summary>
-        /// TODO: Componente não está exibindo o placeholder definido.
+        /// TODO: Component is not exibiting the defined placeholder.
         /// </summary>
         public string Placeholder { get; }
 
@@ -36,13 +36,13 @@ namespace Sena.Mvc.Framework.Views.ViewComponents
 
         #region Construtor
 
-        public VueSelectViewModel(string propriedadeRetorno, string propriedadeId, string propriedadeDescricao, string valorInicial, string fetchUrl, string placeholder = null)
+        public VueSelectViewModel(string returnPropertyName, string identifierPropertyName, string descriptionPropertyName, string initialValue, string fetchUrl, string placeholder = null)
         {
-            Id = "VueSelect" + propriedadeRetorno;
-            NomePropriedadeRetorno = propriedadeRetorno;
-            NomePropriedadeIdentificador = propriedadeId;
-            NomePropriedadeDescricao = propriedadeDescricao;
-            ValorInicial = valorInicial;
+            Id = "VueSelect" + returnPropertyName;
+            ReturnPropertyName = returnPropertyName;
+            IdentifierPropertyName = identifierPropertyName;
+            DescriptionPropertyName = descriptionPropertyName;
+            InitialValue = initialValue;
             FetchUrl = fetchUrl;
             Placeholder = placeholder;
         }

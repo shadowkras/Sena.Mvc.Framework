@@ -1,7 +1,7 @@
 ﻿namespace Sena.Mvc.Framework.Data.Interfaces
 {
     /// <summary>
-    /// Interface para uso com a extensão de automapear classes.
+    /// Interface that is used to identity that a class is using automapper.
     /// </summary>
     public interface IAutoMappleable
     { }

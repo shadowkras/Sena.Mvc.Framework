@@ -9,17 +9,17 @@ using System.Threading.Tasks;
 namespace Sena.Mvc.Framework.Views.Extensions
 {
     /// <summary>
-    /// Classe de extensão para renderização de views do razor.
+    /// Extension class to render views using Razor.
     /// </summary>
     public static class ViewEngineExtensions
     {
         /// <summary>
-        /// Renderiza uma view com os valores da sua viewmodel e retorna como uma string.
+        /// Renders a view with your view model values and returns as string.
         /// </summary>
-        /// <param name="controller">Classe de Controller.</param>
-        /// <param name="viewName">Nome da view.</param>
-        /// <param name="model">Viewmodel com os valores para a view.</param>
-        /// <param name="partial">Indica se a view é uma partial view ou não.</param>
+        /// <param name="controller">Controller class.</param>
+        /// <param name="viewName">Nome of your view.</param>
+        /// <param name="model">Viewmodel with values for your view.</param>
+        /// <param name="partial">Says wether its a partial view.</param>
         /// <returns></returns>
         public static async Task<string> RenderPartialViewToString(this Controller controller, string viewName, object model, bool partial = false)
         {
@@ -64,7 +64,7 @@ namespace Sena.Mvc.Framework.Views.Extensions
 
                 if (viewResult.Success == false)
                 {
-                    return $"A view {viewName} não foi encontrada. Verifique o caminho e o nome do arquivo da view.";
+                    return $"The view {viewName} was not found. Check the path and the file name of the view.";
                 }
 
                 ViewContext viewContext = new ViewContext(controller.ControllerContext,
@@ -81,12 +81,12 @@ namespace Sena.Mvc.Framework.Views.Extensions
         }
 
         /// <summary>
-        /// Renderiza uma view com os valores da sua viewmodel e retorna como uma string.
+        /// Renders a view with your view model values and returns as string.
         /// </summary>
-        /// <param name="razorPage">Classe de RazorPage.</param>
-        /// <param name="viewName">Nome da view.</param>
-        /// <param name="model">Viewmodel com os valores para a view.</param>
-        /// <param name="partial">Indica se a view é uma partial view ou não.</param>
+        /// <param name="razorPage">RazorPage model class.</param>
+        /// <param name="viewName">Nome of your view.</param>
+        /// <param name="model">Viewmodel with values for your view.</param>
+        /// <param name="partial">Says wether its a partial view.</param>
         /// <returns></returns>
         public static async Task<string> RenderPartialViewToString(this PageModel razorPage, string viewName, object model, bool partial = false)
         {
@@ -131,7 +131,7 @@ namespace Sena.Mvc.Framework.Views.Extensions
 
                 if (viewResult.Success == false)
                 {
-                    return $"A view {viewName} não foi encontrada. Verifique o caminho e o nome do arquivo da view.";
+                    return $"The view {viewName} was not found. Check the path and the file name of the view.";
                 }                
 
                 //public ViewContext(ViewContext viewContext, IView view, ViewDataDictionary viewData, TextWriter writer);

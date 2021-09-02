@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <Copyright>Leonardo Sena Rodrigues</Copyright>
+    <RepositoryUrl>https://github.com/shadowkras/Sena.Mvc.Framework</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/shadowkras/Sena.Mvc.Framework</PackageProjectUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sena.Mvc.Framework.Core\Sena.Mvc.Framework.Core.csproj" />
+    <ProjectReference Include="..\Sena.Mvc.Framework.Data\Sena.Mvc.Framework.Data.csproj" />
+    <ProjectReference Include="..\Sena.Mvc.Framework.Services\Sena.Mvc.Framework.Services.csproj" />
+    <ProjectReference Include="..\Sena.Mvc.Framework.Views\Sena.Mvc.Framework.Views.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

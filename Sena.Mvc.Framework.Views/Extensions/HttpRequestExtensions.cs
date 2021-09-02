@@ -3,12 +3,15 @@ using System;
 
 namespace Sena.Mvc.Framework.Views.Extensions
 {
+    /// <summary>
+    /// Extension methods for HttpRequest class.
+    /// </summary>
     public static class HttpRequestExtensions
     {
         /// <summary>
-        /// Converte o request em uma Uri com schema, host, path e query string.
+        /// Convert a request Uri with schema, host, path and query string.
         /// </summary>
-        /// <param name="request">Objeto de HttpRequest.</param>
+        /// <param name="request">HttpRequest object instance.</param>
         /// <returns></returns>
         public static Uri ToUri(this HttpRequest request)
         {

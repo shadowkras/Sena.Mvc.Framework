@@ -9,10 +9,11 @@ namespace Sena.Mvc.Framework.Core.Extensions
     public static class ImageExtension
     {
         /// <summary>
-        /// Redimensiona uma imagem para uma quantidade menor em kilobytes.
+        /// Resizes an image to a lower size in kylobytes.
         /// </summary>
-        /// <param name="byteImageIn">Array de bytes da imagem.</param>
-        /// <returns>Retorna uma nova array redimensionada.</returns>
+        /// <param name="byteImageIn">Byte array with our image.</param>
+        /// <param name="byteSize">New size in bytes.</param>
+        /// <returns>Returns the resized byte array.</returns>
         private static byte[] ResizeToXKbytes(this byte[] byteImageIn, int byteSize)
         {
             if (byteImageIn == null || byteImageIn?.Length == 0)
@@ -44,29 +45,29 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Redimensiona uma imagem para até 50kb.
+        /// Resizes an image to about 50 kylobytes.
         /// </summary>
-        /// <param name="byteImageIn">Array de bytes da imagem.</param>
-        /// <returns>Retorna uma nova array redimensionada.</returns>
+        /// <param name="byteImageIn">Byte array with our image.</param>
+        /// <returns>Returns the resized byte array.</returns>
         public static byte[] ResizeTo50Kbytes(this byte[] byteImageIn)
         {
             return ResizeToXKbytes(byteImageIn, 50000);
         }
 
         /// <summary>
-        /// Redimensiona uma imagem para até 10kb.
+        /// Resizes an image to about 10 kylobytes.
         /// </summary>
-        /// <param name="byteImageIn">Array de bytes da imagem.</param>
-        /// <returns>Retorna uma nova array redimensionada.</returns>
+        /// <param name="byteImageIn">Byte array with our image.</param>
+        /// <returns>Returns the resized byte array.</returns>
         public static byte[] ResizeTo10Kbytes(this byte[] byteImageIn)
         {
             return ResizeToXKbytes(byteImageIn, 10000);
         }
 
         /// <summary>
-        /// Redimensiona uma imagem para até 5kb.
+        /// Resizes an image to about 5 kylobytes.
         /// </summary>
-        /// <param name="byteImageIn">Array de bytes da imagem.</param>
+        /// <param name="byteImageIn">Byte array with our image.</param>
         /// <returns>Retorna uma nova array redimensionada.</returns>
         public static byte[] ResizeTo5Kbytes(this byte[] byteImageIn)
         {
@@ -74,10 +75,10 @@ namespace Sena.Mvc.Framework.Core.Extensions
         }
 
         /// <summary>
-        /// Redimensiona uma imagem para até 1kb.
+        /// Resizes an image to about 1 kylobytes.
         /// </summary>
-        /// <param name="byteImageIn">Array de bytes da imagem.</param>
-        /// <returns>Retorna uma nova array redimensionada.</returns>
+        /// <param name="byteImageIn">Byte array with our image.</param>
+        /// <returns>Returns the resized byte array.</returns>
         public static byte[] ResizeTo1Kbytes(this byte[] byteImageIn)
         {
             return ResizeToXKbytes(byteImageIn, 1000);
@@ -87,8 +88,8 @@ namespace Sena.Mvc.Framework.Core.Extensions
         /// Redimensiona uma imagem para até N kb.
         /// </summary>
         /// <param name="byteImageIn">Array de bytes da imagem.</param>
-        /// <param name="n">Tamanho em Kbytes.</param>
-        /// <returns>Retorna uma nova array redimensionada.</returns>
+        /// <param name="n">New size in Kbytes.</param>
+        /// <returns>Returns the resized byte array.</returns>
         public static byte[] ResizeToNKbytes(this byte[] byteImageIn, int n)
         {
             return ResizeToXKbytes(byteImageIn, n * 1000);

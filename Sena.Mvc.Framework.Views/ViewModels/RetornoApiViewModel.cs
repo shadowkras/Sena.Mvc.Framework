@@ -4,29 +4,29 @@ using Sena.Mvc.Framework.Views.Extensions;
 namespace Sena.Mvc.Framework.Views.ViewModels
 {
     /// <summary>
-    /// Classe de retorno de Api.
+    /// Class to return standard API objects.
     /// </summary>
     public class RetornoApiViewModel
     {
         #region Propriedades Públicas
 
         /// <summary>
-        /// Retorna se a operação foi realizada com sucesso.
+        /// Returns wether the request was successful.
         /// </summary>
-        public bool Sucesso { get; set; }
+        public bool IsSucess { get; set; }
 
         /// <summary>
-        /// Mensagem de retorno para o usuário.
+        /// Message to return by our API. Usually used as display message for errors.
         /// </summary>
-        public string Mensagem { get; set; }
+        public string Message { get; set; }
 
         /// <summary>
-        /// Dados de retorno da operação.
+        /// Data returned by our API.
         /// </summary>
-        public object Dados { get; set; }
+        public object Data { get; set; }
 
         /// <summary>
-        /// Indica se a API deve retornar erro 404 quando não obtiver sucesso.
+        /// Defines if our APIs should return 404 if not successful.
         /// </summary>
         private bool? ReturnNotFound { get; set; }
 
@@ -35,16 +35,16 @@ namespace Sena.Mvc.Framework.Views.ViewModels
         #region Construtor
 
         /// <summary>
-        /// Construtor da classe de retorno de Api.
+        /// Standard constructor for an Return API class.
         /// </summary>
-        /// <param name="sucesso">Indica se a operação foi concluída com sucesso.</param>
-        /// <param name="mensagem">Mensagem de retorno para o usuário.</param>
-        /// <param name="dados">Dados de retorno da operação.</param>
-        public RetornoApiViewModel(bool sucesso = false, string mensagem = "", object dados = null, bool? returnNotFound = null)
+        /// <param name="isSuccess">Says wether the request was successful.</param>
+        /// <param name="message">Message to return by our API.</param>
+        /// <param name="data">Data returned by our API.</param>
+        public RetornoApiViewModel(bool isSuccess = false, string message = "", object data = null, bool? returnNotFound = null)
         {
-            Sucesso = sucesso;
-            Mensagem = mensagem;
-            Dados = dados;
+            IsSucess = isSuccess;
+            Message = message;
+            Data = data;
             ReturnNotFound = returnNotFound;
         }
 
@@ -53,16 +53,16 @@ namespace Sena.Mvc.Framework.Views.ViewModels
         #region Métodos de Retorno
 
         /// <summary>
-        /// Retorna a classe em formato JSON.
+        /// Returns the Return API class as a json object.
         /// </summary>
-        /// <param name="displayNulls">Converter objetos nulos e vazios.</param>
+        /// <param name="displayNulls">Defines if we should serialize null and empty objects.</param>
         /// <returns></returns>
-        public ContentResult RetornoJson(bool displayNulls = false)
+        public ContentResult ReturnAsJson(bool displayNulls = false)
         {
             return new ContentResult
             {
                 StatusCode = this.ReturnNotFound == true ? 404 : 200,
-                Content = this.SerializarJSON(displayNulls),
+                Content = this.SerializeJSON(displayNulls),
                 ContentType = "application/json"
             };
         }

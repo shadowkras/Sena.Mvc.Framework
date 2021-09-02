@@ -8,6 +8,10 @@ using System.Reflection;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
+    /// <summary>
+    /// Internal class to work with enumerables.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
     internal static class EnumInternals<T> where T : struct, IEnumConstraint
     {
         internal static readonly bool IsFlags = false;
