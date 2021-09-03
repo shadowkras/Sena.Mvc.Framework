@@ -61,7 +61,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
         /// <param name="message">Message to return by our API.</param>
         /// <param name="data">Data returned by our API.</param>
         /// <returns></returns>
-        public IActionResult RetornAsApiJson(bool isSuccess = false, string message = "", object data = null)
+        public IActionResult ReturnAsApiJson(bool isSuccess = false, string message = "", object data = null)
         {
             return new ViewModels.ReturnApiViewModel
             {

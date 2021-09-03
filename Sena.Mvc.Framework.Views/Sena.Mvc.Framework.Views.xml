@@ -71,7 +71,7 @@
             </summary>
             <param name="messages">List of error messages.</param>
         </member>
-        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.RetornAsApiJson(System.Boolean,System.String,System.Object)">
+        <member name="M:Sena.Mvc.Framework.Views.Controllers.BaseController.ReturnAsApiJson(System.Boolean,System.String,System.Object)">
             <summary>
             Returns our standard api object as json.
             </summary>
