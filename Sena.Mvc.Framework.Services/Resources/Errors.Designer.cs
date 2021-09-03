@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Vigente.Framework.Services.Resources {
+namespace Sena.Mvc.Framework.Services.Resources {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace Vigente.Framework.Services.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Criticas {
+    public class Errors {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Criticas() {
+        internal Errors() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Vigente.Framework.Services.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vigente.Framework.Services.Resources.Criticas", typeof(Criticas).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Vigente.Framework.Services.Resources.Erros", typeof(Errors).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,56 +61,29 @@ namespace Vigente.Framework.Services.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Este campo é requerido..
+        ///   Looks up a localized string similar to Sem conexão com o servidor. Tente novamente mais tarde..
         /// </summary>
-        public static string Campo_Requerido {
+        public static string Conexao {
             get {
-                return ResourceManager.GetString("Campo_Requerido", resourceCulture);
+                return ResourceManager.GetString("Conexao", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} já cadastrada..
+        ///   Looks up a localized string similar to Ocorreu um erro inesperado..
         /// </summary>
-        public static string Ja_Cadastrada_0 {
+        public static string Erro_Inesperado {
             get {
-                return ResourceManager.GetString("Ja_Cadastrada_0", resourceCulture);
+                return ResourceManager.GetString("Erro_Inesperado", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} já cadastrado..
+        ///   Looks up a localized string similar to Não foi possível {0}..
         /// </summary>
-        public static string Ja_Cadastrado_0 {
+        public static string Possivel_0 {
             get {
-                return ResourceManager.GetString("Ja_Cadastrado_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Já existe {0}..
-        /// </summary>
-        public static string Ja_Existe_0 {
-            get {
-                return ResourceManager.GetString("Ja_Existe_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} não encontrada..
-        /// </summary>
-        public static string Nao_Encontrada_0 {
-            get {
-                return ResourceManager.GetString("Nao_Encontrada_0", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to {0} não encontrado..
-        /// </summary>
-        public static string Nao_Encontrado_0 {
-            get {
-                return ResourceManager.GetString("Nao_Encontrado_0", resourceCulture);
+                return ResourceManager.GetString("Possivel_0", resourceCulture);
             }
         }
     }
