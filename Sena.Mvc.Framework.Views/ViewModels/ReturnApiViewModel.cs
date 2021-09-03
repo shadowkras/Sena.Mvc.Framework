@@ -6,7 +6,7 @@ namespace Sena.Mvc.Framework.Views.ViewModels
     /// <summary>
     /// Class to return standard API objects.
     /// </summary>
-    public class RetornoApiViewModel
+    public class ReturnApiViewModel
     {
         #region Propriedades Públicas
 
@@ -40,7 +40,7 @@ namespace Sena.Mvc.Framework.Views.ViewModels
         /// <param name="isSuccess">Says wether the request was successful.</param>
         /// <param name="message">Message to return by our API.</param>
         /// <param name="data">Data returned by our API.</param>
-        public RetornoApiViewModel(bool isSuccess = false, string message = "", object data = null, bool? returnNotFound = null)
+        public ReturnApiViewModel(bool isSuccess = false, string message = "", object data = null, bool? returnNotFound = null)
         {
             IsSucess = isSuccess;
             Message = message;

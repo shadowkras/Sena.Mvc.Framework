@@ -407,32 +407,32 @@
             Base class for google reCAPTCHA return.
             </summary>
         </member>
-        <member name="T:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel">
+        <member name="T:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel">
             <summary>
             Class to return standard API objects.
             </summary>
         </member>
-        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.IsSucess">
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.IsSucess">
             <summary>
             Returns wether the request was successful.
             </summary>
         </member>
-        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.Message">
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.Message">
             <summary>
             Message to return by our API. Usually used as display message for errors.
             </summary>
         </member>
-        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.Data">
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.Data">
             <summary>
             Data returned by our API.
             </summary>
         </member>
-        <member name="P:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.ReturnNotFound">
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.ReturnNotFound">
             <summary>
             Defines if our APIs should return 404 if not successful.
             </summary>
         </member>
-        <member name="M:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.#ctor(System.Boolean,System.String,System.Object,System.Nullable{System.Boolean})">
+        <member name="M:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.#ctor(System.Boolean,System.String,System.Object,System.Nullable{System.Boolean})">
             <summary>
             Standard constructor for an Return API class.
             </summary>
@@ -440,7 +440,7 @@
             <param name="message">Message to return by our API.</param>
             <param name="data">Data returned by our API.</param>
         </member>
-        <member name="M:Sena.Mvc.Framework.Views.ViewModels.RetornoApiViewModel.ReturnAsJson(System.Boolean)">
+        <member name="M:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.ReturnAsJson(System.Boolean)">
             <summary>
             Returns the Return API class as a json object.
             </summary>

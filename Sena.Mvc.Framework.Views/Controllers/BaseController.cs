@@ -63,7 +63,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
         /// <returns></returns>
         public IActionResult RetornAsApiJson(bool isSuccess = false, string message = "", object data = null)
         {
-            return new ViewModels.RetornoApiViewModel
+            return new ViewModels.ReturnApiViewModel
             {
                 IsSucess = isSuccess,
                 Message = message,
@@ -85,7 +85,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
         {
             if (System.Diagnostics.Debugger.IsAttached == true)
             {
-                return new ViewModels.RetornoApiViewModel
+                return new ViewModels.ReturnApiViewModel
                 {
                     IsSucess = false,
                     Message = message ?? "There was an error.",
@@ -94,7 +94,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
             }
             else
             {
-                return new ViewModels.RetornoApiViewModel
+                return new ViewModels.ReturnApiViewModel
                 {
                     IsSucess = false,
                     Message = message ?? "There was an error.",
