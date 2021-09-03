@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Sena.Mvc.Framework.Core.Extensions
 {
@@ -50,6 +51,20 @@ namespace Sena.Mvc.Framework.Core.Extensions
                 return true;
             else
                 return (collection.Count == 0);
+        }
+
+        /// <summary>
+        /// Returns if our IEnumerable is empty.
+        /// <para>Example: if(MyEnumerable.IsEmpty() == true)</para>
+        /// </summary>
+        /// <param name="ienumerable">Object of IEnumerable type.</param>
+        /// <returns></returns>        
+        public static bool IsEmpty<T>(this IEnumerable<T> ienumerable)
+        {
+            if (ienumerable == null)
+                return true;
+            else
+                return (ienumerable.Any() == false);
         }
     }
 }

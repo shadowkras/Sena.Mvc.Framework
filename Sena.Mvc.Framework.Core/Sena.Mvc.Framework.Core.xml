@@ -104,6 +104,14 @@
             <param name="collection">Object of ICollection type.</param>
             <returns></returns>        
         </member>
+        <member name="M:Sena.Mvc.Framework.Core.Extensions.DictionaryExtensions.IsEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Returns if our IEnumerable is empty.
+            <para>Example: if(MyEnumerable.IsEmpty() == true)</para>
+            </summary>
+            <param name="ienumerable">Object of IEnumerable type.</param>
+            <returns></returns>        
+        </member>
         <member name="T:Sena.Mvc.Framework.Core.Extensions.EnumExtensions">
             <summary>
             Extension methods for Enums.
