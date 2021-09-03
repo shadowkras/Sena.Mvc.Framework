@@ -71,6 +71,13 @@
             <param name="geoJson">GeoJSON string.</param>
             <returns></returns>
         </member>
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.GetAreaSquareMeters(GeoAPI.Geometries.IGeometry)">
+            <summary>
+            Returns the area of a geometry in square meters.
+            </summary>
+            <param name="geometry">Objeto of IGeometry type.</param>
+            <returns></returns>
+        </member>
         <member name="T:Sena.Mvc.Framework.Data.Extensions.IQueryableExtensions">
             <summary>
             Extension methods for IQueryable objects (expressions).
