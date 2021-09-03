@@ -29,7 +29,7 @@ namespace Sena.Mvc.Framework.Views.Attributes
 
             IConfiguration configuration = (IConfiguration)validationContext.GetService(typeof(IConfiguration));
             string reCaptchResponse = value.ToString();
-            string reCaptchaSecret = configuration.GetValue<string>("GoogleReCaptcha:SecretKey");
+            string reCaptchaSecret = configuration.GetSection("GoogleReCaptcha:SecretKey").Value;
 
             HttpClient httpClient = new HttpClient();
             var httpResponse = httpClient.GetAsync($"https://www.google.com/recaptcha/api/siteverify?secret={reCaptchaSecret}&response={reCaptchResponse}").Result;

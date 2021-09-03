@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <Authors>Leonardo Sena Rodrigues</Authors>
     <Product>Sena.Mvc.Framework</Product>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/shadowkras/Sena.Mvc.Framework</PackageProjectUrl>
     <RepositoryUrl>https://github.com/shadowkras/Sena.Mvc.Framework</RepositoryUrl>
     <Description>This is a framework with several tools that help developing the View layer of a MVC project in C#.</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -16,7 +17,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.2.8" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.RazorPages" Version="2.2.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.9" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 

@@ -1,5 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
+using Microsoft.AspNetCore.Mvc;
 using Sena.Mvc.Framework.Core.Extensions;
 
 namespace Sena.Mvc.Framework.Views.Controllers
