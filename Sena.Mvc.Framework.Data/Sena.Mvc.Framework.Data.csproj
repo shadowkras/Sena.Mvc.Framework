@@ -11,6 +11,7 @@
     <Description>This is a framework with several tools that help developing the Data layer of a MVC project in C#.
 It has a generic repository with standard CRUD methods using entity framework.</Description>
     <Copyright>Leonardo Sena Rodrigues</Copyright>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
