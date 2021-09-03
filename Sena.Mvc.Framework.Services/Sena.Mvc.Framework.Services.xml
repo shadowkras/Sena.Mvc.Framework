@@ -9,5 +9,82 @@
             Structure map dependency resolver class.
             </summary>
         </member>
+        <member name="T:Vigente.Framework.Services.Resources.Criticas">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Campo_Requerido">
+            <summary>
+              Looks up a localized string similar to Este campo é requerido..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Ja_Cadastrada_0">
+            <summary>
+              Looks up a localized string similar to {0} já cadastrada..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Ja_Cadastrado_0">
+            <summary>
+              Looks up a localized string similar to {0} já cadastrado..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Ja_Existe_0">
+            <summary>
+              Looks up a localized string similar to Já existe {0}..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Nao_Encontrada_0">
+            <summary>
+              Looks up a localized string similar to {0} não encontrada..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Criticas.Nao_Encontrado_0">
+            <summary>
+              Looks up a localized string similar to {0} não encontrado..
+            </summary>
+        </member>
+        <member name="T:Vigente.Framework.Services.Resources.Erros">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Erros.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Erros.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Erros.Conexao">
+            <summary>
+              Looks up a localized string similar to Sem conexão com o servidor. Tente novamente mais tarde..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Erros.Erro_Inesperado">
+            <summary>
+              Looks up a localized string similar to Ocorreu um erro inesperado..
+            </summary>
+        </member>
+        <member name="P:Vigente.Framework.Services.Resources.Erros.Possivel_0">
+            <summary>
+              Looks up a localized string similar to Não foi possível {0}..
+            </summary>
+        </member>
     </members>
 </doc>
