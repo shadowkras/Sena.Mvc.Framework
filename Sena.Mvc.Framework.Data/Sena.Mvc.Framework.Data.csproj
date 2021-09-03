@@ -15,7 +15,7 @@ It has a generic repository with standard CRUD methods using entity framework.</
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Projetos Github\Sena.Mvc.Framework\Sena.Mvc.Framework.Data\Sena.Mvc.Framework.Data.xml</DocumentationFile>
+    <DocumentationFile>Sena.Mvc.Framework.Data.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

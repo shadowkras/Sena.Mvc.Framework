@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>D:\Projetos Github\Sena.Mvc.Framework\Sena.Mvc.Framework.Services\Sena.Mvc.Framework.Services.xml</DocumentationFile>
+    <DocumentationFile>Sena.Mvc.Framework.Services.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
