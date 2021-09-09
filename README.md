@@ -5,7 +5,10 @@ Welcome. This is a framework of tools for microsoft's MVC project pattern. It co
 It is divided into four projects and packages:
 
 Sena.Mvc.Framework.Data
+
 Sena.Mvc.Framework.Services
+
 Sena.Mvc.Framework.Views
+
 Sena.Mvc.Framework.Core
 
