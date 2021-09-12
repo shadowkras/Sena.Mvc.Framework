@@ -5,9 +5,9 @@ using System.IO;
 using System.Text;
 using Sena.Mvc.Framework.Core.Extensions;
 using ProjNet.CoordinateSystems.Transformations;
-using GeoAPI.Geometries;
 using System.Collections.Generic;
 using System.Linq;
+using GeoAPI.Geometries;
 
 namespace Sena.Mvc.Framework.Data.Extensions
 {
@@ -97,7 +97,9 @@ namespace Sena.Mvc.Framework.Data.Extensions
                 var newCoordinates = new List<Coordinate>();
                 foreach (var ponto in geometry.Coordinates)
                 {
-                    newCoordinates.Add(mathTransform.Transform(ponto));
+                    var transformedCoord = mathTransform.Transform(ponto.X, ponto.Y, ponto.Z);
+                    var newCoord = new Coordinate(transformedCoord.o1, transformedCoord.o2, transformedCoord.o3);
+                    newCoordinates.Add(newCoord);
                 }
 
                 var points = newCoordinates;

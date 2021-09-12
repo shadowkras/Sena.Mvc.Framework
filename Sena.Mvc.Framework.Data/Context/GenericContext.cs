@@ -45,6 +45,17 @@ namespace Sena.Mvc.Framework.Data.Context
 
         #endregion
 
+        /// <summary>
+        /// Virtual method to execute extension methods to our context modelBuilder class.
+        /// <para>Example:</para>
+        /// <para>modelBuilder.HasPostgresExtension();</para>
+        /// </summary>
+        /// <param name="modelBuilder">ModelBuilder instance.</param>
+        public virtual void ModelBuilderConfiguration(ModelBuilder modelBuilder)
+        {
+            //No configuration by default.
+        }
+
         #region Saving exceptions
 
         /// <summary>
@@ -95,7 +106,13 @@ namespace Sena.Mvc.Framework.Data.Context
                 throw ex;
             }
 
-            #endregion            
+            #endregion
+
+            #region Model builder configuration
+
+            ModelBuilderConfiguration(modelBuilder);
+
+            #endregion
 
             #region Generic model building
 

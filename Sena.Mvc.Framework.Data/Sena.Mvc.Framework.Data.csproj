@@ -11,7 +11,7 @@
     <Description>This is a framework with several tools that help developing the Data layer of a MVC project in C#.
 It has a generic repository with standard CRUD methods using entity framework.</Description>
     <Copyright>Leonardo Sena Rodrigues</Copyright>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -21,12 +21,13 @@ It has a generic repository with standard CRUD methods using entity framework.</
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.ExpressionMapping" Version="4.1.1" />
+    <PackageReference Include="GeoAPI.Core" Version="1.7.5" />
     <PackageReference Include="GeoJSON.Net" Version="1.2.19" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="3.1.18" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.18" />
     <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="2.0.4" />
-    <PackageReference Include="ProjNET4GeoAPI" Version="1.4.1" />
+    <PackageReference Include="ProjNet" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>

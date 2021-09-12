@@ -26,6 +26,14 @@
             </summary>
             <param name="modelBuilder">ModelBuilder instance.</param>
         </member>
+        <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.ModelBuilderConfiguration(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+            Virtual method to execute extension methods to our context modelBuilder class.
+            <para>Example:</para>
+            <para>modelBuilder.HasPostgresExtension();</para>
+            </summary>
+            <param name="modelBuilder">ModelBuilder instance.</param>
+        </member>
         <member name="M:Sena.Mvc.Framework.Data.Context.GenericContext`1.SaveException(System.Exception)">
             <summary>
             Virtual method to handle exceptions on our context.
