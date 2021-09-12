@@ -65,7 +65,7 @@
             Extension class to work with geometries and geoJSON.
             </summary>
         </member>
-        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.WriteGeoJson(GeoAPI.Geometries.IGeometry)">
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.WriteGeoJson(NetTopologySuite.Geometries.Geometry)">
             <summary>
             Converts a geometry to GeoJSON.
             </summary>
@@ -79,7 +79,7 @@
             <param name="geoJson">GeoJSON string.</param>
             <returns></returns>
         </member>
-        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.GetAreaSquareMeters(GeoAPI.Geometries.IGeometry)">
+        <member name="M:Sena.Mvc.Framework.Data.Extensions.IGeometryExtensions.GetAreaSquareMeters(NetTopologySuite.Geometries.Geometry)">
             <summary>
             Returns the area of a geometry in square meters.
             </summary>

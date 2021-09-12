@@ -7,7 +7,7 @@ using Sena.Mvc.Framework.Core.Extensions;
 using ProjNet.CoordinateSystems.Transformations;
 using System.Collections.Generic;
 using System.Linq;
-using GeoAPI.Geometries;
+using NetTopologySuite.Geometries;
 
 namespace Sena.Mvc.Framework.Data.Extensions
 {
@@ -21,7 +21,7 @@ namespace Sena.Mvc.Framework.Data.Extensions
         /// </summary>
         /// <param name="geometry">IGeometry object.</param>
         /// <returns></returns>
-        public static  string WriteGeoJson(this GeoAPI.Geometries.IGeometry geometry)
+        public static  string WriteGeoJson(this Geometry geometry)
         {
             if(geometry == null)
             {
@@ -51,7 +51,7 @@ namespace Sena.Mvc.Framework.Data.Extensions
         /// </summary>
         /// <param name="geoJson">GeoJSON string.</param>
         /// <returns></returns>
-        public static GeoAPI.Geometries.IGeometry ReadGeoJson(this string geoJson)
+        public static Geometry ReadGeoJson(this string geoJson)
         {
             if (geoJson.IsEmpty() == true)
             {
@@ -61,8 +61,8 @@ namespace Sena.Mvc.Framework.Data.Extensions
             try
             {
                 JsonSerializer serializer = GeoJsonSerializer.CreateDefault();
-                var geometry = serializer.Deserialize(new JsonTextReader(new StringReader(geoJson)), typeof(GeoAPI.Geometries.IGeometry));
-                return (GeoAPI.Geometries.IGeometry)geometry;
+                var geometry = serializer.Deserialize(new JsonTextReader(new StringReader(geoJson)), typeof(Geometry));
+                return (Geometry)geometry;
             }
             catch(Exception ex)
             {
@@ -75,7 +75,7 @@ namespace Sena.Mvc.Framework.Data.Extensions
         /// </summary>
         /// <param name="geometry">Objeto of IGeometry type.</param>
         /// <returns></returns>
-        public static double GetAreaSquareMeters(this GeoAPI.Geometries.IGeometry geometry)
+        public static double GetAreaSquareMeters(this Geometry geometry)
         {
             // ver http://epsg.io/3857 (código utilizado pelo google, bing, arcgis e esri).
             //const string epsg3857 = "PROJCS[\"WGS_1984_Web_Mercator_Auxiliary_Sphere\",GEOGCS[\"GCS_WGS_1984\", DATUM[\"D_WGS_1984\", SPHEROID[\"WGS_1984\",6378137.0,298.257223563]],PRIMEM[\"Greenwich\",0.0],UNIT[\"Degree\",0.017453292519943295]],PROJECTION[\"Mercator_Auxiliary_Sphere\"], PARAMETER[\"False_Easting\",0.0],PARAMETER[\"False_Northing\",0.0],PARAMETER[\"Central_Meridian\",0.0],PARAMETER[\"Standard_Parallel_1\",0.0],PARAMETER[\"Auxiliary_Sphere_Type\",0.0],UNIT[\"Meter\",1.0]]";
@@ -98,7 +98,7 @@ namespace Sena.Mvc.Framework.Data.Extensions
                 foreach (var ponto in geometry.Coordinates)
                 {
                     var transformedCoord = mathTransform.Transform(ponto.X, ponto.Y, ponto.Z);
-                    var newCoord = new Coordinate(transformedCoord.o1, transformedCoord.o2, transformedCoord.o3);
+                    var newCoord = new Coordinate(transformedCoord.o1, transformedCoord.o2);
                     newCoordinates.Add(newCoord);
                 }
 
