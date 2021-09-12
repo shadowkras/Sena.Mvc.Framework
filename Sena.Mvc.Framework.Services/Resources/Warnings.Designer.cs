@@ -39,7 +39,7 @@ namespace Sena.Mvc.Framework.Services.Resources {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sena.Mvc.Framework.Services.Resources.Criticas", typeof(Warnings).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Sena.Mvc.Framework.Services.Resources.Warnings", typeof(Warnings).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
