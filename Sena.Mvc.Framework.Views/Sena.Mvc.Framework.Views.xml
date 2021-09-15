@@ -412,7 +412,7 @@
             Class to return standard API objects.
             </summary>
         </member>
-        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.IsSucess">
+        <member name="P:Sena.Mvc.Framework.Views.ViewModels.ReturnApiViewModel.IsSuccess">
             <summary>
             Returns wether the request was successful.
             </summary>
