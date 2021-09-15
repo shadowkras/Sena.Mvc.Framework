@@ -65,7 +65,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
         {
             return new ViewModels.ReturnApiViewModel
             {
-                IsSucess = isSuccess,
+                IsSuccess = isSuccess,
                 Message = message,
                 Data = data,
             }.ReturnAsJson();
@@ -87,7 +87,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
             {
                 return new ViewModels.ReturnApiViewModel
                 {
-                    IsSucess = false,
+                    IsSuccess = false,
                     Message = message ?? "There was an error.",
                     Data = ex.GetMessageList(),
                 }.ReturnAsJson();
@@ -96,7 +96,7 @@ namespace Sena.Mvc.Framework.Views.Controllers
             {
                 return new ViewModels.ReturnApiViewModel
                 {
-                    IsSucess = false,
+                    IsSuccess = false,
                     Message = message ?? "There was an error.",
                 }.ReturnAsJson();
             }

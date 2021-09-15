@@ -13,7 +13,7 @@ namespace Sena.Mvc.Framework.Views.ViewModels
         /// <summary>
         /// Returns wether the request was successful.
         /// </summary>
-        public bool IsSucess { get; set; }
+        public bool IsSuccess { get; set; }
 
         /// <summary>
         /// Message to return by our API. Usually used as display message for errors.
@@ -42,7 +42,7 @@ namespace Sena.Mvc.Framework.Views.ViewModels
         /// <param name="data">Data returned by our API.</param>
         public ReturnApiViewModel(bool isSuccess = false, string message = "", object data = null, bool? returnNotFound = null)
         {
-            IsSucess = isSuccess;
+            IsSuccess = isSuccess;
             Message = message;
             Data = data;
             ReturnNotFound = returnNotFound;
