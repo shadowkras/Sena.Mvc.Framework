@@ -330,8 +330,9 @@ namespace Sena.Mvc.Framework.Data.Repository
                                            Expression<Func<TEntity, bool>> predicate = null)
         {
             var sequencia = await DbSet.WhereNullSafe(predicate)
-                                       .DefaultIfEmpty()
-                                       .MaxAsync(properties);
+                                       .OrderByDescending(properties)
+                                       .Select(properties)
+                                       .FirstOrDefaultAsync();
 
             return sequencia;
         }
@@ -346,8 +347,9 @@ namespace Sena.Mvc.Framework.Data.Repository
                                             Expression<Func<TEntity, bool>> predicate = null)
         {
             var sequencia = await DbSet.WhereNullSafe(predicate)
-                                       .DefaultIfEmpty()
-                                       .MaxAsync(properties);
+                                       .OrderByDescending(properties)
+                                       .Select(properties)
+                                       .FirstOrDefaultAsync();
 
             return sequencia;
         }
